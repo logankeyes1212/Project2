@@ -1,45 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <title>Passport Authentication</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Passport Authentication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bringing in Jquery and Bootstrap and also linking our js and css file -->
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="assets/javascript/app.js"></script> -->
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
+</html>
+
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      </div>
-    </div>
-  </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Login Form</h2>
-        <form class="login">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
-          </div>
-          <button type="submit" class="btn btn-default">Login</button>
-        </form>
-        <br />
-        <p>Or sign up <a href="/">here</a></p>
-      </div>
-    </div>
-  </div>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">JavaScript</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col s2"></div>
+            <div class="col s8">
+                <div class="card">
+                    <div class="card-tabs">
+                        <ul class="tabs tabs-fixed-width">
+                            <li class="tab"><a class="active" href="#login" id="login-link">Login </a></li>
+                            <li class="tab"><a href="#signup" id="signup-link">Sign up</a></li>
+                        </ul>
+                    </div>
+                    <div class="card-content grey lighten-4">
+                        <div id="login">
+                            <div class="row">
+                                <div class="col s2"></div>
+                                <form class="col s8">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="email" type="text" class="validate">
+                                            <label for="email">Email Id</label>
+                                        </div>
+                                    </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/login.js"></script>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="password" type="password" class="validate">
+                                            <label for="password">Password</label>
+                                        </div>
+                                    </div>
 
+
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <button class="btn waves-effect waves-light" type="submit"
+                                                name="action">Submit
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="col s2"></div>
+                            </div>
+                        </div>
+                        <div id="signup">
+                            <div class="row">
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input id="first_name" type="text" class="validate">
+                                            <label for="first_name">First Name</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input id="last_name" type="text" class="validate">
+                                            <label for="last_name">Last Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="email" type="email" class="validate">
+                                            <label for="email">Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="password" type="password" class="validate">
+                                            <label for="password">Password</label>
+                                        </div>
+                                    </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+
+                                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                    </button>
+
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
-
+<script>
+    $(document).ready(function () {
+        console.log("ready!");
+        $("#signup").hide();
+        $("#signup-link").click(function () {
+            console.log("Clicked Sign up");
+            $("#signup").show();
+            $("#login").hide();
+        });
+        $("#login-link").click(function () {
+            console.log("Clicked Sign up");
+            $("#signup").hide();
+            $("#login").show();
+        });
+    });
+</script>
 </html>
