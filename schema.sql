@@ -14,7 +14,7 @@ CREATE TABLE `users` (
 CREATE TABLE   `workOutTypes`(
     `id` INTEGER AUTO_INCREMENT NOT NULL,
     `name` VARCHAR(255) NOT NULL,
-    `caloriePerhour` INTEGER NOT NULL,
+    `caloriesPerHour` INTEGER NOT NULL,
     PRIMARY KEY ( `id` )
 );
 
@@ -41,5 +41,11 @@ CREATE TABLE `workOutLog`(
 );
 
 
-
+CREATE TABLE workOutChallenge(
+    `id` INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL
+    `name` VARCHAR(255) NOT NULL,
+    `goal` INTEGER NOT NULL,
+    `challengeDuration` INTEGER NOT NULL,
+    `createdate` DATETIME
+)
 
