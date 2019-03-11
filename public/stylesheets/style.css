@@ -1,22 +1,37 @@
 
         /*Black color to the text*/
         .tabs .tab a{
-            color:#000;
+            color:rgb(0, 121, 177);
         } 
 
         /*Text color on hover*/
         .tabs .tab a:hover {
             background-color:#eee;
-            color:#000;
+            color:rgb(0, 121, 177);
         } 
 
         /*Background and text color when a tab is active*/
         .tabs .tab a.active {
-            background-color:rgba(29, 163, 47, 0.671);
-            color:#000;
+            background-color:rgba(38, 193, 214, 0.24);
+            color:rgb(0, 121, 177);
         } 
 
         /*Color of underline*/
         .tabs .indicator {
-            background-color:#000;
+            background-color:rgb(0, 121, 177);
         } 
+
+        .placeholderImages{
+            max-width: 40%;
+            width: 400px;
+        }
+
+        nav{
+            background-color:rgba(38, 193, 214, 0.24);
+                box-shadow: none!important;
+            
+        }
+
+        .navText{
+            color: rgb(0, 121, 177);
+        }
