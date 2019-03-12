@@ -9,6 +9,11 @@ module.exports = function(sequelize, DataTypes) {
     //   workOutTypes.id: {
     //  sequilize will do this below
     // } 
+    logID: { 
+      type: DataTypes.INTEGER,
+      allowNull: false,
+       primaryKey: true
+      },
      WorkOutDate: {
             type: DataTypes.DATE,
             allowNull: false,
@@ -30,6 +35,7 @@ module.exports = function(sequelize, DataTypes) {
         // A Post can't be created without an Author due to the foreign key constraint
         workOutLog.belongsTo(models.user, {
           foreignKey: {
+            key:id,
             allowNull: false
           }
         });
@@ -39,6 +45,16 @@ module.exports = function(sequelize, DataTypes) {
         // We're saying that a Post should belong to an Author
         // A Post can't be created without an Author due to the foreign key constraint
         workOutLog.belongsTo(models.workOutTypes, {
+          foreignKey: {
+            allowNull: false
+          }
+        });
+      };
+
+      workOutLog.associate = function(models) {
+        // We're saying that a Post should belong to an Author
+        // A Post can't be created without an Author due to the foreign key constraint
+        workOutLog.belongsTo(models.workOutChallenge, {
           foreignKey: {
             allowNull: false
           }
