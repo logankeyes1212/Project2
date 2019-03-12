@@ -19,7 +19,7 @@
 <body class="container">
     <nav>
         <div class="nav-wrapper">
-            <a href="#" class="navText">Welcome to Level Up</a>
+                <a href="#" class="navText" id="logoText">Welcome to Level Up</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="#" class="navText">Go Premium</a></li>
                 <li><a href="#" class="navText">Logout</a></li>
@@ -30,78 +30,94 @@
         <!-- SIGNUP and LOGIN CHOICES -->
         <div class="row">
             <div class="col s8 push-s2">
-                <div class="tabs">
-                    <ul class="tabs tabs-fixed-width">
-                        <li class="tab"><a class="active" href="#login" id="login-link">Login </a></li>
-                        <li class="tab"><a href="#signup" id="signup-link">Sign up</a></li>
-                    </ul>
-                </div>
+                <ul class="tabs tabs-fixed-width">
+                    <li class="tab"><a class="active" href="#login">Login</a></li>
+                    <li class="tab"><a href="#signup">Sign up</a></li>
+                </ul>
             </div>
-        </div>
 
-        <!-- FORM AREA -->
-        <!-- LOGIN DIV -->
-        <div class="row">
-            <div id="login" class="grey lighten-4 col s8 push-s2">
+            <!-- FORM AREA -->
+            <!-- LOGIN DIV -->
+            <div id="login" class="col s12">
                 <div class="row">
-                    <form class="col s8 push-s2">
+                    <div class="grey lighten-4 col s8 push-s2">
                         <div class="row">
-                            <div class="input-field col s12">
-                                <input id="email" type="text" class="validate">
-                                <label for="email">Email Id</label>
-                            </div>
-                        </div>
+                            <form class="col s8 push-s2">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="email" type="text" class="validate">
+                                        <label for="email">Email Id</label>
+                                    </div>
+                                </div>
 
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="password" type="password" class="validate">
-                                <label for="password">Password</label>
-                            </div>
-                        </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="password" type="password" class="validate">
+                                        <label for="password">Password</label>
+                                    </div>
+                                </div>
 
 
-                        <div class="row">
-                            <div class="col s12">
-                                <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
-                            </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button class="btn waves-effect waves-light" type="submit"
+                                            name="action">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- SIGNUP DIV -->
-        <div class="row">
-            <div id="signup" class="grey lighten-4 col s8 push-s2">
+            <!-- SIGNUP DIV -->
+            <div id="signup" class="col s12">
                 <div class="row">
-                    <form class="col s8 push-s2">
+                    <div class="grey lighten-4 col s8 push-s2">
                         <div class="row">
-                            <div class="input-field col s12">
-                                <input id="first_name" type="text" class="validate">
-                                <label for="first_name">First and Last Name</label>
-                            </div>
+                            <form class="col s8 push-s2">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="first_name" type="text" class="validate">
+                                        <label for="first_name">First and Last Name</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        <div class="input-field col s6">
+                                            <input id="email" type="text" class="validate">
+                                            <label for="email">City</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input id="password" type="text" class="validate">
+                                            <label for="password">State</label>
+                                        </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input id="email" type="email" class="validate">
+                                        <label for="email">Email</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="password" type="password" class="validate">
+                                        <label for="password">Password</label>
+                                    </div>
+                                </div>
+                                <div class="row"></div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button class="btn waves-effect waves-light" type="submit"
+                                            name="action">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <input id="email" type="email" class="validate">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input id="password" type="password" class="validate">
-                                <label for="password">Password</label>
-                            </div>
-                        </div>
-                        <div class="row"></div>
-                        <div class="row">
-                            <div class="col s12">
-                                <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
 
+
+        </div>
+    </div>
 </body>
 
 </html>
