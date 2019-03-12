@@ -18,6 +18,14 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isEmail: true
       }
+    },   
+     state: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     // The password cannot be null
     password: {
