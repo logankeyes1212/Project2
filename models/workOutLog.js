@@ -9,11 +9,6 @@ module.exports = function(sequelize, DataTypes) {
     //   workOutTypes.id: {
     //  sequilize will do this below
     // } 
-    logID: { 
-      type: DataTypes.INTEGER,
-      allowNull: false,
-       primaryKey: true
-      },
      WorkOutDate: {
             type: DataTypes.DATE,
             allowNull: false,

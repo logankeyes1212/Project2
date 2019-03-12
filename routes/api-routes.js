@@ -33,8 +33,8 @@ module.exports = function(app) {
       name:req.body.name,
       email: req.body.email,
       password: req.body.password,
-      city:req.body.city,
-      state:req.body.state
+      city: req.body.city,
+      state: req.body.state
     }).then(function(result) {
       console.log("result",result);
       res.redirect("/login");
