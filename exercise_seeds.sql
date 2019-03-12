@@ -9,7 +9,7 @@ INSERT INTO workOutTypes (name, caloriesPerHour) VALUES ("Jogging", 532);
 INSERT INTO workOutTypes (name, caloriesPerHour) VALUES ("Mowing the Lawn", 472);
 INSERT INTO workOutTypes (name, caloriesPerHour) VALUES ("Running (11min/mile)", 772);
 INSERT INTO workOutTypes (name, caloriesPerHour) VALUES ("Stair Step Machine", 772);
-INSERT INTO workOutTypes (name, caloriesPerHour) VALUES ("Stationary Bike: Moderate", 472;
+INSERT INTO workOutTypes (name, caloriesPerHour) VALUES ("Stationary Bike: Moderate", 472);
 INSERT INTO workOutTypes (name, caloriesPerHour) VALUES ("Stationary Bike: Moderate", 600);
 INSERT INTO workOutTypes (name, caloriesPerHour) VALUES ("Stationary Bike: Vigorous", 900);
 INSERT INTO workOutTypes (name, caloriesPerHour) VALUES ("Stationary Rowing: Moderate", 300);
