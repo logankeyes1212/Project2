@@ -2,95 +2,110 @@
 <html>
 
 <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <title>Level Up Workout</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
    <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/style.css">
    <script src="./js/app.js"></script>
 </head>
 
-<body class="container">
-   <div class="styleContainer">
-      <nav>
+<body>
+   <!-- NAV BAR AREA -->
+      <nav class="nav-extended">
          <div class="nav-wrapper">
-            <a href="#" class="navText" id="logoText">Welcome to Level Up</a>
+            <a href="#" class="brand-logo center" id="logoText">LEVEL UP</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-               <li><a href="#" class="navText">Go Premium</a></li>
-               <li><a href="#" class="navText">Logout</a></li>
+               <li><a href="#">Go Premium</a></li>
+               <li><a href="#">Logout</a></li>
+            </ul>
+         </div>
+         <div class="nav-content">
+            <ul class="tabs tabs-fixed-width tab-demo z-depth-1 right hide-on-med-and-down">
+               <li class="tab"><a class="active" href="#level">Current Level</a></li>
+               <li class="tab"><a href="#workout">Log Workout</a></li>
+               <li class="tab"><a href="#leaderboard">Leaderboard</a></li>
+               <li class="tab"><a href="#challenges">Challenges</a></li>
             </ul>
          </div>
       </nav>
-      <div>
-         <div class="row">
-            <div class="col s12">
-               <ul class="tabs">
-                  <li class="tab col s3"><a class="active" href="#level">Current Level</a></li>
-                  <li class="tab col s3"><a href="#workout">Log Workout</a></li>
-                  <li class="tab col s3"><a href="#leaderboard">Leaderboard</a></li>
-                  <li class="tab col s3"><a href="#challanges">Challanges</a></li>
-               </ul>
-            </div>
+   
+      <ul class="sidenav" id="mobile-demo">
+         <li><a href="#">Go Premium</a></li>
+         <li><a class="active" href="#level">Current Level</a></li>
+         <li><a href="#workout">Log Workout</a></li>
+         <li><a href="#leaderboard">Leaderboard</a></li>
+         <li><a href="#challenges">Challenges</a></li>
+         <li><a href="#">Logout</a></li>
+      </ul>
+  
 
-            <!-- Current Progress Display -->
-            <div id="level" class="col s12">
+   <!-- MAIN BODY -->
+   <!-- <div class="container"> -->
+      <div class="row">
 
-               <div class="row" id="progressRow">
-                     <div class="col s3 status">
-                           <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
-                     </div>
-                     <div id="infoArea" class="col s9">
-                        <p>Your Current Progress</p>
-                     </div>
+         <!-- Current Progress Display -->
+         <div id="level" class="col s12">
+            <div class="row" id="progressRow">
+               <div class="col s3 status">
+                  <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
+               </div>
+               <div id="infoArea1" class="col s9">
+                  <p>Your Current Progress</p>
                </div>
             </div>
+         </div>
 
-            <!-- Log a New Workout -->
-            <div id="workout" class="col s12">
-
-                  <div class="row" id="workoutRow">
-                        <div class="col s3 status">
-                              <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
-                        </div>
-                        <div id="infoArea" class="col s9">
-                           <p>Log A Workout</p>
-                        </div>
-                  </div>
-            </div>
-
-            <!-- Leaderboards based on criteria -->
-            <div id="leaderboard" class="col s12">
-
-                  <div class="row" id="leaderboardRow">
-                        <div class="col s3 status">
-                              <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
-                        </div>
-                        <div id="infoArea" class="col s9">
-                           <p>Leaderboards</p>
-                        </div>
-                  </div>
-            </div>
-
-
-            <!-- Challange yourself or your friends -->
-            <div id="challanges" class="col s12">
-
-                  <div class="row" id="challangesRow">
-                        <div class="col s3 status">
-                              <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
-                        </div>
-                        <div id="infoArea" class="col s9">
-                           <p>Challanges</p>
-                        </div>
-                  </div>
+         <!-- Log a New Workout -->
+         <div id="workout" class="col s12">
+            <div class="row" id="workoutRow">
+               <div class="col s3 status">
+                  <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
+               </div>
+               <div id="infoArea2" class="col s9">
+                  <p>Log A Workout</p>
+               </div>
             </div>
          </div>
+
+         <!-- Leaderboards based on criteria -->
+         <div id="leaderboard" class="col s12">
+            <div class="row" id="leaderboardRow">
+               <div class="col s3 status">
+                  <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
+               </div>
+               <div id="infoArea3" class="col s9">
+                  <p>Leaderboards</p>
+               </div>
+            </div>
+         </div>
+
+
+         <!-- Challenge yourself or your friends -->
+         <div id="challenges" class="col s12">
+            <div class="row" id="challengesRow">
+               <div class="col s3 status">
+                  <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
+               </div>
+               <div id="infoArea4" class="col s9">
+                  <p>Challenges</p>
+               </div>
+            </div>
+         </div>
+
+
       </div>
    </div>
 
 
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   
 
 </body>
 
