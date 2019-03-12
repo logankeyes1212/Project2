@@ -21,7 +21,11 @@ module.exports = function(sequelize, DataTypes) {
         workOutTypes.hasMany(models.workOutLog, {
           onDelete: "RESTRICT"
         });
+        workOutTypes.hasMany(models.workOutChallenge, {
+          onDelete: "RESTRICT"
+        });
       };
+      
 
       return workOutTypes;
     

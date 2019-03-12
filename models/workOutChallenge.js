@@ -17,7 +17,14 @@ module.exports = function(sequelize, DataTypes) {
       challengeDuration: {
         type: DataTypes.INTEGER,
         allowNull: false
-      }
+      },
     });
+    workOutChallenge.associate = function(models) {
+      // Associating Author with Posts
+      // When an Author is deleted, also delete any associated Posts
+      workOutChallenge.hasMany(models.workOutLog, {
+        onDelete: "RESTRICT"
+      });
+    };
     return workOutChallenge;
 }
