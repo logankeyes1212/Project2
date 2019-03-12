@@ -1,6 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
     var workOutTypes = sequelize.define("workOutTypes", {
       // The email cannot be null, and must be a proper email before creation
+      workOutID: { 
+        type: DataTypes.INTEGER,
+        allowNull: false,
+         primaryKey: true
+        },
       name: {
         type: DataTypes.STRING,
         allowNull: false
