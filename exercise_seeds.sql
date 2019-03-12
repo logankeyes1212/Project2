@@ -29,35 +29,3 @@ INSERT INTO workOutLog(workOutDate, workOutDuration, createdDate) VALUES (2011-1
 
 INSERT INTO workOutChallenge (name, goal, challengeDuration, createdDate) VALUES ("Challenge one", "goal", 30, now)
 
-CREATE TABLE workOutLog(
-   logId INTEGER AUTO_INCREMENT NOT NULL,
-   workOutDate DATE NOT NULL,
-   workOutID INTEGER NOT NULL,
-   workOutDuration INTEGER NOT NULL,
-   userid INTEGER NOT NULL,
-   challengeId INTEGER NOT NULL,
-   createdDate DATETIME NOT NULL, 
-    
-    FOREIGN KEY (workOutID)
-    REFERENCES workOutTypes(workOutId)
-    ON UPDATE CASCADE
-    ON DELETE RESTRICT,
-    
-    FOREIGN KEY (challengeId)
-    REFERENCES workOutChallenge(challengeId)
-    ON UPDATE CASCADE
-    ON DELETE RESTRICT,
-    
-    FOREIGN KEY (userid)
-    REFERENCES users(usersId)
-    ON UPDATE CASCADE
-    ON DELETE RESTRI
-
-
-CREATE TABLE workOutChallenge(
-   challengeid INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
-   name VARCHAR(255) NOT NULL,
-   goal INTEGER NOT NULL,
-   challengeDuration INTEGER NOT NULL,
-   createdate DATETIME
-)

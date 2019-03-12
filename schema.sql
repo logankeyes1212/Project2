@@ -28,7 +28,7 @@ CREATE TABLE workOutChallenge(
    name VARCHAR(255) NOT NULL,
    goal INTEGER NOT NULL,
    challengeDuration INTEGER NOT NULL,
-   createdate DATETIME
+   createdate DATE
 );
 CREATE TABLE workOutLog(
 	logId INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,

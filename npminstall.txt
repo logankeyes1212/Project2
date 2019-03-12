@@ -1,0 +1,6 @@
+npm install path
+npm install express
+npm install express-sessions
+npm install bcrypt-nodejs
+npm install sequelize
+npm install passport
