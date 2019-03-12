@@ -1,4 +1,4 @@
-ROP DATABASE IF EXISTS siamese;
+DROP DATABASE IF EXISTS siamese;
 CREATE DATABASE siamese;
 USE siamese;
 CREATE TABLE users (
