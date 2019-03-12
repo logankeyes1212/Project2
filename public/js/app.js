@@ -1,10 +1,12 @@
 $(document).ready(function(){
-    $('.tabs').tabs();
+  $('.tabs').tabs();
+  $('.sidenav').sidenav();
+  $(".dropdown-trigger").dropdown();
   });
 
-  // var instance = M.Tabs.getInstance(elem);
 
-  
-  // instance.select('tab_id');
+  var instance = M.Tabs.getInstance(elem);
 
-  // instance.updateTabIndicator();
+  instance.select('tab_id');
+
+  instance.updateTabIndicator();
