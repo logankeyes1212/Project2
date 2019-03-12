@@ -2,7 +2,7 @@ $(document).ready(function(){
   $('.tabs').tabs();
   $('.sidenav').sidenav();
   $(".dropdown-trigger").dropdown();
-  });
+
 
 
   var instance = M.Tabs.getInstance(elem);
@@ -10,3 +10,4 @@ $(document).ready(function(){
   instance.select('tab_id');
 
   instance.updateTabIndicator();
+});

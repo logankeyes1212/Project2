@@ -27,8 +27,9 @@ $(document).ready(function() {
         email: email,
         password: password
       }).then(function(data) {
-        // window.location.replace(data);
+        
         console.log("data", data);
+        window.location.reload(data);
         // If there's an error, log the error
       }).catch(function(err) {
         console.log(err);
@@ -39,7 +40,9 @@ $(document).ready(function() {
       var signUpData = {
         name: $("#signupName").val().trim(),
         email: $("#signupEmail").val().trim(),
-        password: $("#signupPassword").val().trim()
+        password: $("#signupPassword").val().trim(),
+        state:$("#state").val().trim(),
+        city:$("#city").val().trim()
       };
   
       if (!signUpData.email && !signUpData.password && !signUpData.name) {
@@ -48,18 +51,21 @@ $(document).ready(function() {
       }
   
       // If we have an email and password we run the loginUser function and clear the form
-      signupUser(signUpData.email, signUpData.password, signUpData.name);
-        $("#signupName").val("");
-        $("#signupEmail").val("");
-        $("#signupPassword").val("");
+      signupUser(signUpData.email, signUpData.password, signUpData.name, signUpData.city, signUpData.state);
+        // $("#signupName").val("");
+        // $("#signupEmail").val("");
+        // $("#signupPassword").val("");
     });
   
     // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-    function signupUser(email, password, name) {
+    function signupUser(email, password, name, city, state) {
+      console.log("email",email);
       $.post("/api/signup", {
         name: name,
         email: email,
-        password: password
+        password: password,
+        state : state,
+        city :city
       }).then(function(data) {
         console.log("data", data);
         window.location.reload(data);
