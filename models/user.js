@@ -8,8 +8,12 @@ module.exports = function(sequelize, DataTypes) {
     userID: { 
       type: DataTypes.INTEGER,
       allowNull: false,
+<<<<<<< HEAD
        primaryKey: true,
        autoIncrement: true
+=======
+       primaryKey: true
+>>>>>>> 910b10b5e2d2d0c0143ef38744975918507ff502
       },
 
     email: {
@@ -19,6 +23,14 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isEmail: true
       }
+    },   
+     state: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     // The password cannot be null
     password: {
