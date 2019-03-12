@@ -8,7 +8,7 @@ nav{
         box-shadow: none!important;   
 }
 
-#level, #workout, #leaderboard, #challenges, #login, #signup{
+#level, #workout, #leaderboard, #challenges, #login, #signup, #loginTab, #signupTab{
     margin-top: 10px;
 }
 
