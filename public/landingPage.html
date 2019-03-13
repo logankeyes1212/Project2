@@ -85,22 +85,26 @@
 
                <!--LogNewWorkout-->
                <div id="workNew">
-                     <div class="input-field col l8 s12">
-                           <select id = "workOutTypesDropDown">
-                             <option value="" disabled selected>Choose your workout</option>
-                             <option value="1">Running</option>
-                             <option value="2">Biking</option>
-                           
-                           </select>
-                           <label>Workout Select</label>
-                         </div>
-                         <div class="input-field col l4 s12">
-                              <input id="exerciseTime" type="number" class="validate">
-                              <label for="exerciseTime">Workout Time (In Minutes)</label>
-                           </div>
-                         
-                         <button class="btn waves-effect waves-light" type="submit" id="workOutType"
-                         name="action">Submit</button>
+                  <div class="input-field col l6 s12">
+                     <select>
+                        <option value="" disabled selected>Choose your workout</option>
+                        <option value="1">Running</option>
+                        <option value="2">Biking</option>
+                        <option value="3">Swimming</option>
+                     </select>
+                     <label>Workout Select</label>
+                  </div>
+                  <div class="input-field col l3 s12">
+                     <input id="exerciseTime" type="number" class="validate">
+                     <label for="exerciseTime">Workout Time (In Minutes)</label>
+                  </div>
+                  <div class="input-field col l3 s12">
+                     <input id="workoutDay" type="text" class="datepicker">
+                     <label for="workoutDay">Date of Workout</label>
+                  </div>
+
+                  <button class="btn waves-effect waves-light" type="submit" id="createWorkout"
+                     name="action">Submit</button>
                </div>
 
                <!-- WORKOUT LOG -->
@@ -323,7 +327,7 @@
    <!--This closes out the Container div - might not be needed as it wastes a lot of space-->
 
 
-   <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
