@@ -1,20 +1,23 @@
 DROP DATABASE IF EXISTS siamese;
 CREATE DATABASE siamese;
 USE siamese;
+
 CREATE TABLE users (
  userId INTEGER AUTO_INCREMENT NOT NULL,
  name VARCHAR( 255) NOT NULL,
  email VARCHAR( 255 ) NOT NULL,
  password VARCHAR(255) NOT NULL,
  createdDate DATETIME NOT NULL,
-  PRIMARY KEY (userId ) 
+ PRIMARY KEY (userId ) 
 );
+
 CREATE TABLE  workOutTypes(
    workOutId INTEGER AUTO_INCREMENT NOT NULL,
    name VARCHAR(255) NOT NULL,
    caloriesPerHour INTEGER NOT NULL,
-    PRIMARY KEY ( workOutId )
+   PRIMARY KEY ( workOutId )
 );
+
 CREATE TABLE workOutChallenge(
    challengeId INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
    name VARCHAR(255) NOT NULL,
@@ -22,27 +25,32 @@ CREATE TABLE workOutChallenge(
    challengeDuration INTEGER NOT NULL,
    createdate DATETIME
 );
+
 CREATE TABLE workOutLog(
-    logId INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
-   workOutDate DATE NOT NULL,
-   workOutId INTEGER NOT NULL,
-   workOutDuration INTEGER NOT NULL,
-   userid INTEGER NOT NULL, 
-   challengeId INTEGER NOT NULL,
-   createdDate DATETIME NOT NULL,
-    
-   FOREIGN KEY (workOutID)
-   REFERENCES workOutTypes(workOutId)
-  ON UPDATE CASCADE
-ON DELETE RESTRICT,
-    
-FOREIGN KEY (challengeId)
-     REFERENCES workOutChallenge(challengeId)
+	 logId INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	 workOutDate DATE NOT NULL,
+    workOutId INTEGER NOT NULL,
+   
+    FOREIGN KEY (workOutID)
+    REFERENCES workOutTypes(workOutId)
     ON UPDATE CASCADE
-   ON DELETE RESTRICT,
-     
-     FOREIGN KEY (userId)
+    ON DELETE RESTRICT,
+   
+    workOutDuration INTEGER NOT NULL,
+    userid INTEGER NOT NULL, 
+   
+    FOREIGN KEY (userId)
     REFERENCES users(userId)
-   ON UPDATE CASCADE
-   ON DELETE RESTRICT
+    ON UPDATE CASCADE
+    ON DELETE RESTRICT,
+   
+    challengeId INTEGER NOT NULL,
+   
+    FOREIGN KEY (challengeId)
+    REFERENCES workOutChallenge(challengeId)
+    ON UPDATE CASCADE
+    ON DELETE RESTRICT,
+   
+    createdDate DATETIME NOT NULL
 );
+
