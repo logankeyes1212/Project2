@@ -30,8 +30,9 @@ module.exports = function(app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/main", isAuthenticated, function(req, res) {
-    // console.log("hello3333");
-    res.sendFile(path.join(__dirname, "../public/landingPage.html"));
+    // console.log("req.user", req.user);
+    res.sendFile(path.join(__dirname, "../public/landingPage.html"),req.user);
+   // res.send(path.join(__dirname, "../public/landingPage.html"),req);
   });
 
 };

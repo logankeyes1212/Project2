@@ -1,5 +1,6 @@
 $(document).ready(function() {
  
+  var userInfo;
   // $(".tab")
   $('#loginlink').click();
     // When the form is submitted, we validate there's an email and password entered
@@ -23,20 +24,24 @@ $(document).ready(function() {
   
     // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
     function loginUser(email, password) {
-      console.log("inside LoginUser fucntion"+ email + password);
+      
       $.post("/api/login", {
         email: email,
         password: password
-      }).done(function(data) {
-        
-        console.log("data", data);
-        window.location.reload(data);
-        // If there's an error, log the error
-      })
-      // .catch(function(err) {
-      //   console.log(err);
-      // });
-    }
+      }).then(function(user) {
+        // console.log("userInfo",user);
+        if(user.success == "Yes")
+        {
+          // console.log()
+          sessionStorage.removeItem('userInfo');
+          sessionStorage.clear();
+          sessionStorage.setItem('userInfo', JSON.stringify(user));
+          window.location.reload("landingPage.html");
+      }
+
+      });
+
+  }
     $("#signupSubmit").click(function() {
       event.preventDefault();
       var signUpData = {
@@ -68,7 +73,6 @@ $(document).ready(function() {
         password: password,
         state : state,
         city :city
-        
       }).done(function(data) {
         console.log("data", data);
         window.location.reload(data);
