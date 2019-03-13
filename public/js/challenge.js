@@ -19,14 +19,14 @@ $(document).ready(function () {
 
 
     function createChallenge(name, goal, challengeDuration) {
-        console.log("name ", name);
+        // console.log("name ", name);
         $.post("/api/challenge", {
             name: name,
             goal: goal,
             challengeDuration: challengeDuration
             })
         .done(function (data) {
-            console.log("data ", data);
+            // console.log("data ", data);
             window.location.reload(data);
             // If there's an error, log the error
         })

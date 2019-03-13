@@ -23,13 +23,13 @@ $(document).ready(function() {
   
     // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
     function loginUser(email, password) {
-      console.log("inside LoginUser fucntion"+ email + password);
+      // console.log("inside LoginUser fucntion"+ email + password);
       $.post("/api/login", {
         email: email,
         password: password
       }).done(function(data) {
         
-        console.log("data", data);
+        // console.log("data", data);
         window.location.reload(data);
         // If there's an error, log the error
       })
@@ -61,16 +61,16 @@ $(document).ready(function() {
   
     // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
     function signupUser(email, password, name, city, state) {
-      console.log("email" , email);
+      // console.log("email" , email);
       $.post("/api/signup", {
         name: name,
         email: email,
         password: password,
         state : state,
         city :city
-        
+
       }).done(function(data) {
-        console.log("data", data);
+        // console.log("data", data);
         window.location.reload(data);
         // If there's an error, log the error
       })

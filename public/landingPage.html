@@ -83,11 +83,13 @@
                </ul>
                <div id="workNew">
                      <div class="input-field col l8 s12">
-                           <select>
+                           <select id = "workOutTypesDropDown">
                              <option value="" disabled selected>Choose your workout</option>
                              <option value="1">Running</option>
                              <option value="2">Biking</option>
                              <option value="3">Swimming</option>
+                             <option value="4">Skipping</option>
+                             <option value="5">waliing</option>
                            </select>
                            <label>Workout Select</label>
                          </div>
@@ -96,7 +98,7 @@
                               <label for="exerciseTime">Workout Time (In Minutes)</label>
                            </div>
                          
-                         <button class="btn waves-effect waves-light" type="submit" id="createWorkout"
+                         <button class="btn waves-effect waves-light" type="submit" id="workOutType"
                          name="action">Submit</button>
                </div>
 
@@ -320,7 +322,7 @@
    <!--This closes out the Container div - might not be needed as it wastes a lot of space-->
 
 
-   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+   <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
 
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
