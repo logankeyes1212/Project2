@@ -12,6 +12,9 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
    <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/style.css">
    <script src="./js/app.js"></script>
+   <script src="./js/login.js"></script>
+   <script src="./js/challenge.js"></script>
+   <script src="./js/workOutTypes.js"></script>
 </head>
 
 <body>
@@ -94,8 +97,33 @@
                </div>
                <div id="infoArea4" class="col s9">
                   <p>Challenges</p>
+                  <div class="row">
+                     <div class="input-field col s12">
+                         <input id="challengeName" type="text" class="validate">
+                         <label for="challengeName">Challenge name</label>
+                     </div>
+                 </div>
+
+                 <div class="row">
+                     <div class="input-field col s12">
+                         <input id="goal" type="number" class="validate">
+                         <label for="goal">Goal</label>
+                     </div>
+                 </div>
+                 <div class="row">
+                  <div class="input-field col s12">
+                      <input id="duration" type="number" class="validate">
+                      <label for="duration">Duration</label>
+                  </div>
+              </div>
+                 <div class="row">
+                     <div class="col s12">
+                         <button class="btn waves-effect waves-light" type="submit" id="createChallenge"
+                             name="action">Submit</button>
+                     </div>
+                 </div>
                </div>
-            </div>
+             </div>
          </div>
 
 
@@ -103,7 +131,6 @@
    </div>
 
 
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
    
 

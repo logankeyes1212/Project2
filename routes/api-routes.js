@@ -45,7 +45,42 @@ module.exports = function(app) {
       // res.status(422).json(err.errors[0].message);
     });
   });
+  app.post("/api/challenge", function(req, res) {
+    // console.log(req.body);
+    
+    db.workOutChallenge.create({
+      name:req.body.name,
+      goal: req.body.goal,
+      challengeDuration: req.body.challengeDuration
+     
+    }).then(function(result) {
+      console.log("result",result);
+      res.redirect("/main");
+      // res.json(result);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+      // res.status(422).json(err.errors[0].message);
+    });
+  });
 
+  
+  app.post("/api/workOutTypes", function(req, res) {
+    // console.log(req.body);
+    
+    db.workOutChallenge.create({
+      name:req.body.name,
+
+    }).then(function(result) {
+      console.log("result",result);
+      res.redirect("/main");
+      // res.json(result);
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+      // res.status(422).json(err.errors[0].message);
+    });
+  });
   //Route for logging user out
   // app.get("/logout", function(req, res) {
   //   req.logout();
