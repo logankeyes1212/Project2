@@ -3,6 +3,7 @@ $(document).ready(function () {
   // SIDE NAV FUNCTIONS
   $('.tabs').tabs();
   $('.sidenav').sidenav();
+  $('.datepicker').datepicker();
   // $(".button-collapse").sideNav({
   //   closeOnClick: false
   // });
