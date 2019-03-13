@@ -1,12 +1,40 @@
-$(document).ready(function(){
+$(document).ready(function () {
+
+  // SIDE NAV FUNCTIONS
   $('.tabs').tabs();
   $('.sidenav').sidenav();
-  $(".dropdown-trigger").dropdown();
+  // $(".button-collapse").sideNav({
+  //   closeOnClick: false
+  // });
+
+
+  var elem = document.querySelector('.sidenav');
+  var instance = M.Sidenav.init(elem, {
+    onOpenStart: function () {
+    },
+    onCloseEnd: function () {
+      $('.tabs').tabs();
+    }
+  });
+  // instance.updateTabIndicator();
+  // instance.select('.tabs');
+
+  $(document).ready(function(){
+    $('select').formSelect();
   });
 
 
-  // var instance = M.Tabs.getInstance(elem);
 
-  // instance.select('tab_id');
 
-  // instance.updateTabIndicator();
+  //create challange function
+  $("#createChallenge").click(function () {
+    event.preventDefault();
+    var challenge = {
+      name: $("#challengeName").val().trim(),
+      goal: $("#goal").val().trim(),
+      challengeDuration: $("#duration").val().trim(),
+    }
+  });
+});
+
+

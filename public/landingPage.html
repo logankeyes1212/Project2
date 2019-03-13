@@ -2,12 +2,11 @@
 <html>
 
 <head>
-      <meta charset="utf-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <title>Level Up Workout</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
    <link rel="stylesheet" type="text/css" media="screen" href="./stylesheets/style.css">
@@ -19,120 +18,169 @@
 
 <body>
    <!-- NAV BAR AREA -->
-      <nav class="nav-extended">
-         <div class="nav-wrapper">
-            <a href="#" class="brand-logo center" id="logoText">LEVEL UP</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-               <li><a href="#">Go Premium</a></li>
-               <li><a href="#">Logout</a></li>
-            </ul>
-         </div>
-         <div class="nav-content">
-            <ul class="tabs tabs-fixed-width tab-demo z-depth-1 right hide-on-med-and-down">
-               <li class="tab"><a class="active" href="#level">Current Level</a></li>
-               <li class="tab"><a href="#workout">Log Workout</a></li>
-               <li class="tab"><a href="#leaderboard">Leaderboard</a></li>
-               <li class="tab"><a href="#challenges">Challenges</a></li>
-            </ul>
-         </div>
-      </nav>
-   
-      <ul class="sidenav" id="mobile-demo">
-         <li><a href="#">Go Premium</a></li>
-         <li><a class="active" href="#level">Current Level</a></li>
-         <li><a href="#workout">Log Workout</a></li>
-         <li><a href="#leaderboard">Leaderboard</a></li>
-         <li><a href="#challenges">Challenges</a></li>
-         <li><a href="#">Logout</a></li>
-      </ul>
-  
+
+   <nav class="nav-extended">
+      <div class="nav-wrapper">
+         <a href="#!" class="brand-logo center" id="logoText">LEVEL UP</a>
+         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+         <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">Go Premium</a></li>
+            <li><a href="#">Logout</a></li>
+         </ul>
+      </div>
+      <div class="nav-content">
+         <ul class="tabs tabs-fixed-width tab-demo z-depth-1 right hide-on-med-and-down">
+            <li class="tab"><a class="active" href="#level">Current Level</a></li>
+            <li class="tab"><a href="#workout">Log Workout</a></li>
+            <li class="tab"><a href="#leaderboard">Leaderboard</a></li>
+            <li class="tab"><a href="#challenges">Challenges</a></li>
+         </ul>
+      </div>
+   </nav>
+
+   <ul class="sidenav" id="mobile-demo">
+      <li class="sidenav-close"><a href="#">Go Premium</a></li>
+      <li class="sidenav-close"><a href="#level">Current Level</a></li>
+      <li class="sidenav-close"><a href="#workout">Log Workout</a></li>
+      <li class="sidenav-close"><a href="#leaderboard">Leaderboard</a></li>
+      <li class="sidenav-close"><a href="#challenges">Challenges</a></li>
+      <li class="sidenav-close"><a href="#">Logout</a></li>
+   </ul>
+
 
    <!-- MAIN BODY -->
    <!-- <div class="container"> -->
-      <div class="row">
+   <!--Container div might not be needed as it wastes a lot of space-->
 
-         <!-- Current Progress Display -->
-         <div id="level" class="col s12">
-            <div class="row" id="progressRow">
-               <div class="col s3 status">
-                  <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
-               </div>
-               <div id="infoArea1" class="col s9">
-                  <p>Your Current Progress</p>
-               </div>
+   <div class="row">
+      <!--Row to keep main body seperated from NAV-->
+
+      <!-- Current Progress Display -->
+      <div id="level" class="col s12">
+         <div class="row" id="progressRow">
+            <div class="col s3 status">
+               <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
+            </div>
+            <div id="infoArea1" class="col s9">
+               <p>Your Current Progress</p>
             </div>
          </div>
+      </div>
 
-         <!-- Log a New Workout -->
-         <div id="workout" class="col s12">
-            <div class="row" id="workoutRow">
-               <div class="col s3 status">
-                  <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
+      <!-- Log a New Workout -->
+      <div id="workout" class="col s12">
+         <div class="row" id="workoutRow">
+            <div class="col s3 status">
+               <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
+            </div>
+            <div id="infoArea2" class="col s9">
+               <ul class="tabs tabs-fixed-width">
+                  <li class="tab"><a class="active" href="#workNew">Log New Workout</a></li>
+                  <li class="tab"><a href="#workOld">Workout Log</a></li>
+               </ul>
+               <div id="workNew">
+                     <div class="input-field col l8 s12">
+                           <select>
+                             <option value="" disabled selected>Choose your workout</option>
+                             <option value="1">Running</option>
+                             <option value="2">Biking</option>
+                             <option value="3">Swimming</option>
+                           </select>
+                           <label>Workout Select</label>
+                         </div>
+                         <div class="input-field col l4 s12">
+                              <input id="exerciseTime" type="number" class="validate">
+                              <label for="exerciseTime">Workout Time (In Minutes)</label>
+                           </div>
+                         
+                         <button class="btn waves-effect waves-light" type="submit" id="createWorkout"
+                         name="action">Submit</button>
                </div>
-               <div id="infoArea2" class="col s9">
-                  <p>Log A Workout</p>
-               </div>
+               <div id="workOld">List of Old Workouts</div>
             </div>
          </div>
+      </div>
 
-         <!-- Leaderboards based on criteria -->
-         <div id="leaderboard" class="col s12">
-            <div class="row" id="leaderboardRow">
-               <div class="col s3 status">
-                  <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
-               </div>
-               <div id="infoArea3" class="col s9">
-                  <p>Leaderboards</p>
-               </div>
+      <!-- Leaderboards based on criteria -->
+      <div id="leaderboard" class="col s12">
+         <div class="row" id="leaderboardRow">
+            <div class="col s3 status">
+               <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
+            </div>
+            <div id="infoArea3" class="col s9">
+               <ul class="tabs tabs-fixed-width ">
+                  <li class="tab"><a class="active" href="#leaderAll">Everyone</a></li>
+                  <li class="tab"><a href="#leaderCity">City</a></li>
+                  <li class="tab"><a href="#leaderState">State</a></li>
+               </ul>
+               <div id="leaderAll">Leaderboard</div>
+               <div id="leaderCity">City Leaderboard</div>
+               <div id="leaderState">State Leaderboard</div>
             </div>
          </div>
+      </div>
 
 
-         <!-- Challenge yourself or your friends -->
-         <div id="challenges" class="col s12">
-            <div class="row" id="challengesRow">
-               <div class="col s3 status">
-                  <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
-               </div>
-               <div id="infoArea4" class="col s9">
-                  <p>Challenges</p>
+      <!-- Challenge yourself or your friends -->
+      <div id="challenges" class="col s12">
+         <div class="row" id="challengesRow">
+            <div class="col s3 status">
+               <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
+            </div>
+
+
+            <div id="infoArea4" class="col s9">
+               <ul class="tabs tabs-fixed-width ">
+                  <li class="tab"><a class="active" href="#currentChallenges">Current Challenges</a></li>
+                  <li class="tab"><a href="#newChallenges">New Challenge</a></li>
+               </ul>
+
+               <!-- List of Current Challenges Tab -->
+               <div id="currentChallenges">List of Current Challenges</div>
+
+               <!-- New Challenges Tab -->
+               <div id="newChallenges">
                   <div class="row">
                      <div class="input-field col s12">
-                         <input id="challengeName" type="text" class="validate">
-                         <label for="challengeName">Challenge name</label>
+                        <input id="challengeName" type="text" class="validate">
+                        <label for="challengeName">Challenge name</label>
                      </div>
-                 </div>
-
-                 <div class="row">
-                     <div class="input-field col s12">
-                         <input id="goal" type="number" class="validate">
-                         <label for="goal">Goal</label>
-                     </div>
-                 </div>
-                 <div class="row">
-                  <div class="input-field col s12">
-                      <input id="duration" type="number" class="validate">
-                      <label for="duration">Duration</label>
                   </div>
-              </div>
-                 <div class="row">
-                     <div class="col s12">
-                         <button class="btn waves-effect waves-light" type="submit" id="createChallenge"
-                             name="action">Submit</button>
+                  <div class="row">
+                     <div class="input-field col s12">
+                        <input id="goal" type="number" class="validate">
+                        <label for="goal">Goal</label>
                      </div>
-                 </div>
+                  </div>
+                  <div class="row">
+                     <div class="input-field col s12">
+                        <input id="duration" type="number" class="validate">
+                        <label for="duration">Duration</label>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col s12">
+                        <button class="btn waves-effect waves-light" type="submit" id="createChallenge"
+                           name="action">Submit</button>
+                     </div>
+                  </div>
                </div>
-             </div>
+
+            </div>
          </div>
-
-
       </div>
+
+
    </div>
+   </div>
+   <!--This closes out the Container div - might not be needed as it wastes a lot of space-->
 
 
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-   
+
 
 </body>
 
