@@ -13,9 +13,11 @@ $(document).ready(function () {
 
     if (!userData.email || !userData.password) {
       return;
-    } else {
+    }
+     else {
 
       // If we have an email and password we run the loginUser function and clear the form
+      $("#error-msg").html($("#toast-container"));
       loginUser(userData.email, userData.password);
       $("#loginEmail").val("");
       $("#loginPassword").val("");
@@ -46,7 +48,7 @@ $(document).ready(function () {
     $.post("/api/login", {
       email: email,
       password: password
-    }).then(function (user) {
+    }).done(function (user) {
       // console.log("userInfo",user);
       if (user.success == "Yes") {
         // console.log()
@@ -71,11 +73,11 @@ $(document).ready(function () {
         // console.log("data", data);
         window.location.reload(data);
         // If there's an error, log the error
-      })
-      // .catch(function(err) {
-      //   console.log(err);
-      // });
-  }
+      }).fail(function() {
+      M.toast({html: 'Invalid Email Id or Password'});
+      // alert( "error" );
+  });
+}
   $("#signupSubmit").click(function () {
     event.preventDefault();
     var signUpData = {
@@ -93,9 +95,7 @@ $(document).ready(function () {
 
     // If we have an email and password we run the loginUser function and clear the form
     signupUser(signUpData.email, signUpData.password, signUpData.name, signUpData.city, signUpData.state);
-    $("#signupName").val("");
-    $("#signupEmail").val("");
-    $("#signupPassword").val("");
+
   });
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
