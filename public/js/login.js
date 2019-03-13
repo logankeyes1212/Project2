@@ -14,33 +14,15 @@ $(document).ready(function () {
     if (!userData.email || !userData.password) {
       return;
     }
-     else {
+    else {
 
       // If we have an email and password we run the loginUser function and clear the form
       $("#error-msg").html($("#toast-container"));
       loginUser(userData.email, userData.password);
       $("#loginEmail").val("");
       $("#loginPassword").val("");
-      }
-    });
-  
-    // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-    function loginUser(email, password) {
-      // console.log("inside LoginUser fucntion"+ email + password);
-      $.post("/api/login", {
-        email: email,
-        password: password
-      }).done(function(data) {
-        
-        // console.log("data", data);
-        window.location.reload(data);
-        // If there's an error, log the error
-      })
-      // .catch(function(err) {
-      //   console.log(err);
-      // });
     }
-
+  });
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
   function loginUser(email, password) {
@@ -57,8 +39,9 @@ $(document).ready(function () {
         sessionStorage.setItem('userInfo', JSON.stringify(user));
         window.location.reload("landingPage.html");
       }
+    }).fail(function () {
+      M.toast({ html: 'Invalid Email Id or Password' });
     });
-  
     // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
     function signupUser(email, password, name, city, state) {
       // console.log("email" , email);
@@ -66,52 +49,51 @@ $(document).ready(function () {
         name: name,
         email: email,
         password: password,
-        state : state,
-        city :city
+        state: state,
+        city: city
 
-      }).done(function(data) {
+      }).done(function (data) {
         // console.log("data", data);
         window.location.reload(data);
         // If there's an error, log the error
-      }).fail(function() {
-      M.toast({html: 'Invalid Email Id or Password'});
-      // alert( "error" );
-  });
-}
-  $("#signupSubmit").click(function () {
-    event.preventDefault();
-    var signUpData = {
-      name: $("#signupName").val().trim(),
-      email: $("#signupEmail").val().trim(),
-      password: $("#signupPassword").val().trim(),
-      state: $("#state").val().trim(),
-      city: $("#city").val().trim()
-    };
 
-    if (!signUpData.email && !signUpData.password && !signUpData.name) {
-      alert("Please fill in all the details for signing up");
-      return;
+        // alert( "error" );
+      });
     }
+    $("#signupSubmit").click(function () {
+      event.preventDefault();
+      var signUpData = {
+        name: $("#signupName").val().trim(),
+        email: $("#signupEmail").val().trim(),
+        password: $("#signupPassword").val().trim(),
+        state: $("#state").val().trim(),
+        city: $("#city").val().trim()
+      };
 
-    // If we have an email and password we run the loginUser function and clear the form
-    signupUser(signUpData.email, signUpData.password, signUpData.name, signUpData.city, signUpData.state);
+      if (!signUpData.email && !signUpData.password && !signUpData.name) {
+        alert("Please fill in all the details for signing up");
+        return;
+      }
 
-  });
+      // If we have an email and password we run the loginUser function and clear the form
+      signupUser(signUpData.email, signUpData.password, signUpData.name, signUpData.city, signUpData.state);
 
-  // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-  function signupUser(email, password, name, city, state) {
-    console.log("email", email);
-    $.post("/api/signup", {
-      name: name,
-      email: email,
-      password: password,
-      state: state,
-      city: city
-    }).done(function (data) {
-      console.log("data", data);
-      window.location.reload(data);
-      // If there's an error, log the error
     });
-  }
-};
+
+    // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+    function signupUser(email, password, name, city, state) {
+      console.log("email", email);
+      $.post("/api/signup", {
+        name: name,
+        email: email,
+        password: password,
+        state: state,
+        city: city
+      }).done(function (data) {
+        console.log("data", data);
+        window.location.reload(data);
+        // If there's an error, log the error
+      });
+    }
+  };
 });
