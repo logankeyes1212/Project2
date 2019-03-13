@@ -1,51 +1,118 @@
 
 body{
-    background-image: url(../img/ep_naturalwhite.png);
+    background-image: url(../img/action-athlete-barbell-841130.jpg);
+    background-size: cover;
 }
 
 nav{
-    background-color:rgba(38, 193, 214);
-        box-shadow: none!important;   
+    background: 
+    linear-gradient(
+        rgba(61, 69, 138, 0.3), 
+      rgb(61, 69, 138, .8)
+    ),
+    url(../img/dark-honeycomb.png);
+
+    box-shadow: none!important;  
+     
 }
+    /* background-image: url(../img/gravel.png);
+    background-color:rgb(61, 69, 138);
+        box-shadow: none!important;   
+} */
 
 #level, #workout, #leaderboard, #challenges, #login, #signup, #loginTab, #signupTab{
     margin-top: 10px;
 }
 
-#progressRow, #workoutRow, #leaderboardRow, #challengesRow{
+/* Background Colors */
+#progressRow, #workoutRow, #leaderboardRow, #challengesRow, #loginRow, #signupRow{
     padding: 0;
     margin: 0;
-    background-color: rgb(238, 238, 238);
+    background-color: rgba(238, 238, 238, 0.75);
+}
+
+#signupSubmit,#loginSubmit, #createWorkout, #createChallenge{
+    background-color: rgb(0, 102, 143);
+}
+
+#workNew, #workOld {
+    margin: 2%;
 }
 
 .status{
     padding: 0 !important;
-    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .rankImage{
+    display: block;
     width: 100%;
+    max-height: 40%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 /*White color to the text*/
 .tabs .tab a{
     color:rgb(255, 255, 255);
-    background-color:rgba(38, 193, 214);
+    background: 
+    linear-gradient(
+        rgb(45, 50, 100), 
+      rgb(61, 69, 138, .9)
+    );
 } 
 /*Text color on hover*/
 .tabs .tab a:hover {
-    background-color:rgba(9, 226, 255);
-    color:rgb(0, 121, 177);
+    background-color: rgba(0, 0, 0);
+    color:rgb(255, 255, 255);
 } 
 /*Background and text color when a tab is active*/
 .tabs .tab a.active {
-    background-color:rgba(59, 229, 252) !important;
-    color:rgb(0, 121, 178);
+    background: linear-gradient(
+        rgb(36, 43, 102),
+        rgb(36, 43, 102)
+    );
+    color:rgb(255, 255, 255);
 } 
 /*Color of underline*/
 .tabs .indicator {
     background-color:rgb(255, 255, 255);
 } 
+
+
+  /* label color */
+  .input-field label {
+    color: rgb(61, 61, 61) !important;;
+    font-size: 18px;
+  }
+  /* label focus color */
+  .input-field input:focus + label {
+    color: rgb(124, 66, 0) !important;
+  }
+  /* label underline focus color */
+  .input-field input:focus {
+    border-bottom: 1px solid rgb(124, 66, 0) !important;
+    box-shadow: 0 1px 0 0 rgba(124, 66, 0, 0.3) !important;;
+  }
+  /* valid color */
+  .input-field input.valid {
+    border-bottom: 1px solid #000 !important;;
+    box-shadow: 0 1px 0 0 #000 !important;;
+  }
+  /* invalid color */
+  .input-field input.invalid {
+    border-bottom: 1px solid #000 !important;;
+    box-shadow: 0 1px 0 0 #000 !important;;
+  }
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #000 !important;;
+  }
+
+
 
 .placeholderImages{
     max-width: 40%;
@@ -53,3 +120,32 @@ nav{
 }
 
 
+@media only screen and (max-width: 992px){
+    body{
+        background-image: url(../img/dark-honeycomb.png);
+    }
+
+    #progressRow, #workoutRow, #leaderboardRow, #challengesRow{
+        padding: 0;
+        margin: 0;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .status{
+        padding: 0 !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .rankImage{
+        display: block;
+        width: 100%;
+        max-width: 75%;
+        max-height: 40%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1%;
+        margin-bottom: 1%;
+    }
+
+}
