@@ -1,5 +1,7 @@
+
 // Requiring path to so we can use relative routes to our HTML files
 var path = require("path");
+var db = require("../models");
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -12,7 +14,9 @@ module.exports = function(app) {
       // console.log("hello 2222");
       res.redirect("/main");
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    else {
+      res.sendFile(path.join(__dirname, "../public/login.html"));
+    }
   });
 
   app.get("/login", function(req, res) {
@@ -34,5 +38,37 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/landingPage.html"),req.user);
    // res.send(path.join(__dirname, "../public/landingPage.html"),req);
   });
+
+
+  // app.get("/workOutTypes", function(req, res) {
+  //   db.workOutTypes.findAll({})
+  //   .then(function(dbworkOutTypes) {
+  //     res.json(dbworkOutTypes);
+  //     // console.log(dbworkOutTypes)
+      
+  
+    // Handlebars requires an object to be sent to the index handlebars file.
+    
+
+    // 2. Loop through the name, and send those that are pets to the index handlebars file.
+  //   var data = {
+  //     name: []
+  //   };
+  
+  //   for (var i = 0; i < dbworkOutTypes.length; i += 1) {
+  // //     // Get the current animal.
+  //     var workOutTypeName = dbworkOutTypes[i].name;
+  // console.log(workOutTypeName)
+  //     // Check if this animal is a pet.
+      
+      
+        // <option value="1">Running</option>
+      
+    // }
+
+  // console.log(data)
+    // res.render("index", data);
+  // });
+// });
 
 };

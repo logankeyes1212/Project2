@@ -23,7 +23,7 @@ module.exports = function(app) {
 
 
   app.post("/api/signup", function(req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     
     db.User.create({
       name:req.body.name,
@@ -32,7 +32,7 @@ module.exports = function(app) {
       city: req.body.city,
       state: req.body.state
     }).then(function(result) {
-      console.log("result",result);
+      // console.log("result",result);
       res.redirect("/login");
     });
   });
@@ -63,16 +63,23 @@ module.exports = function(app) {
       name:req.body.name,
 
     }).then(function(result) {
-      console.log("result",result);
-      res.redirect("/main");
-      // res.json(result);
+      // console.log("result",result);
+      //res.redirect("/main");
+      res.json(result);
     }).catch(function(err) {
-      console.log(err);
+      // console.log(err);
       res.json(err);
       // res.status(422).json(err.errors[0].message);
     });
   });
-  
+
+  app.get("/api/workOutTypes", function(req, res) {
+    db.workOutTypes.findAll({})
+    .then(function(dbworkOutTypes) {
+      res.json(dbworkOutTypes);
+      // console.log(dbworkOutTypes)
+    });
+  });
   //Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
