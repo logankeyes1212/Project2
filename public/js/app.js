@@ -35,6 +35,12 @@ $(document).ready(function () {
       challengeDuration: $("#duration").val().trim(),
     }
   });
+// instance.updateTabIndicator();
+// instance.select('.tabs');
+var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+console.log ("userInfo",userInfo);  
+$("#userName").text(userInfo.user.name);
+
 });
 
 
