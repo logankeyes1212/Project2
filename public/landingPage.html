@@ -59,11 +59,13 @@
       <!-- Current Progress Display -->
       <div id="level" class="col s12">
          <div class="row" id="progressRow">
-            <div class="col s3 status">
+            <div class="col l3 s12 status">
                <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
             </div>
-            <div id="infoArea1" class="col s9">
-               <p>Your Current Progress</p>
+            <div id="infoArea1" class="col l9 s12">
+               <h2>Welcome **Participant Name**</h2>
+               <p>Your Current Progress: Level **#**</p>
+               <p>Calories Needed to Next Level **Progress Bar**</p>
             </div>
          </div>
       </div>
@@ -71,10 +73,10 @@
       <!-- Log a New Workout -->
       <div id="workout" class="col s12">
          <div class="row" id="workoutRow">
-            <div class="col s3 status">
+            <div class="col l3 s12 status">
                <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
             </div>
-            <div id="infoArea2" class="col s9">
+            <div id="infoArea2" class="col l9 s12">
                <ul class="tabs tabs-fixed-width">
                   <li class="tab"><a class="active" href="#workNew">Log New Workout</a></li>
                   <li class="tab"><a href="#workOld">Workout Log</a></li>
@@ -97,7 +99,40 @@
                          <button class="btn waves-effect waves-light" type="submit" id="createWorkout"
                          name="action">Submit</button>
                </div>
-               <div id="workOld">List of Old Workouts</div>
+
+               <!-- WORKOUT LOG -->
+               <div id="workOld">      
+                  <table>
+                     <thead>
+                       <tr>
+                           <th>Workout</th>
+                           <th>Time Workout</th>
+                           <th>Total Calories Burned</th>
+                       </tr>
+                     </thead>
+             
+                     <tbody>
+                       <tr>
+                         <td>Running</td>
+                         <td>30 Minutes</td>
+                         <td>100 Calories</td>
+                       </tr>
+                       <tr>
+                         <td>Swimming</td>
+                         <td>60 Minutes</td>
+                         <td>300 Calories</td>
+                       </tr>
+                       <tr>
+                         <td>Biking</td>
+                         <td>45 Minutes</td>
+                         <td>800 Calories</td>
+                       </tr>
+                     </tbody>
+                   </table>
+
+                   <h1>Total Calories Burned: **Add Up Calories**</h1>
+
+              </div>
             </div>
          </div>
       </div>
@@ -105,18 +140,107 @@
       <!-- Leaderboards based on criteria -->
       <div id="leaderboard" class="col s12">
          <div class="row" id="leaderboardRow">
-            <div class="col s3 status">
+            <div class="col l3 s12 status">
                <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
             </div>
-            <div id="infoArea3" class="col s9">
+            <div id="infoArea3" class="col l9 s12">
                <ul class="tabs tabs-fixed-width ">
                   <li class="tab"><a class="active" href="#leaderAll">Everyone</a></li>
                   <li class="tab"><a href="#leaderCity">City</a></li>
                   <li class="tab"><a href="#leaderState">State</a></li>
                </ul>
-               <div id="leaderAll">Leaderboard</div>
-               <div id="leaderCity">City Leaderboard</div>
-               <div id="leaderState">State Leaderboard</div>
+               <!-- ALL MEMBER LEADERBOARD -->
+               <div id="leaderAll">
+                     <table>
+                           <thead>
+                             <tr>
+                                 <th>Level</th>
+                                 <th>Name</th>
+                                 <th>City, State</th>
+                             </tr>
+                           </thead>
+                   
+                           <tbody>
+                             <tr>
+                               <td>26</td>
+                               <td>Chad</td>
+                               <td>New York, New York</td>
+                             </tr>
+                             <tr>
+                               <td>14</td>
+                               <td>Karen</td>
+                               <td>Memphis, Tennesee</td>
+                             </tr>
+                             <tr>
+                               <td>13</td>
+                               <td>Billy Bob</td>
+                               <td>Greenville, Alabama</td>
+                             </tr>
+                           </tbody>
+                         </table>
+               </div>
+
+               <!-- CITY LEADERBOARD -->
+               <div id="leaderCity">
+                     <table>
+                           <thead>
+                             <tr>
+                                 <th>Level</th>
+                                 <th>Name</th>
+                                 <th>City, State</th>
+                             </tr>
+                           </thead>
+                   
+                           <tbody>
+                             <tr>
+                               <td>16</td>
+                               <td>Tex</td>
+                               <td>Memphis, Tennesee</td>
+                             </tr>
+                             <tr>
+                               <td>9</td>
+                               <td>Susan</td>
+                               <td>Memphis, Tennesee</td>
+                             </tr>
+                             <tr>
+                               <td>3</td>
+                               <td>Billy Bob</td>
+                               <td>Memphis, Tennesee</td>
+                             </tr>
+                           </tbody>
+                         </table>
+               </div>
+
+               <!-- STATE LEADERBOARD -->
+               <div id="leaderState">
+                     <table>
+                           <thead>
+                             <tr>
+                                 <th>Level</th>
+                                 <th>Name</th>
+                                 <th>City, State</th>
+                             </tr>
+                           </thead>
+                   
+                           <tbody>
+                             <tr>
+                               <td>26</td>
+                               <td>Chad</td>
+                               <td>New York, New York</td>
+                             </tr>
+                             <tr>
+                               <td>5</td>
+                               <td>Karen</td>
+                               <td>New York, New York</td>
+                             </tr>
+                             <tr>
+                               <td>3</td>
+                               <td>Zach</td>
+                               <td>Buffalo, New York</td>
+                             </tr>
+                           </tbody>
+                         </table>
+               </div>
             </div>
          </div>
       </div>
@@ -125,19 +249,38 @@
       <!-- Challenge yourself or your friends -->
       <div id="challenges" class="col s12">
          <div class="row" id="challengesRow">
-            <div class="col s3 status">
+            <div class="col l3 s12 status">
                <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
             </div>
 
 
-            <div id="infoArea4" class="col s9">
+            <div id="infoArea4" class="col l9 s12">
                <ul class="tabs tabs-fixed-width ">
                   <li class="tab"><a class="active" href="#currentChallenges">Current Challenges</a></li>
                   <li class="tab"><a href="#newChallenges">New Challenge</a></li>
                </ul>
 
                <!-- List of Current Challenges Tab -->
-               <div id="currentChallenges">List of Current Challenges</div>
+               <div id="currentChallenges">
+                     <table>
+                           <thead>
+                             <tr>
+                                 <th>Current Challenges</th>
+                                 <th>Progress</th>
+                                 <th>Time Remaining</th>
+                             </tr>
+                           </thead>
+                   
+                           <tbody>
+                             <tr>
+                               <td>Stop Being Fat</td>
+                               <td>10/100000 Calories Burned</td>
+                               <td>5 Months</td>
+                             </tr>
+
+                           </tbody>
+                         </table>
+               </div>
 
                <!-- New Challenges Tab -->
                <div id="newChallenges">
@@ -177,7 +320,9 @@
    <!--This closes out the Container div - might not be needed as it wastes a lot of space-->
 
 
-   
+   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 
