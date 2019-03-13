@@ -21,6 +21,21 @@ $(document).ready(function () {
 
   $(document).ready(function(){
     $('select').formSelect();
+    $('#logoutBtn').click(function () {
+      event.preventDefault();
+      console.log("HTML logout");
+      $.get("/logout").then(function (results) {
+        // console.log("userInfo",results);
+        sessionStorage.removeItem('userInfo');
+        sessionStorage.clear();
+        window.location.reload(results);
+        // if (user.success == "Yes") {
+        //   // console.log()
+        //   
+        // 
+        // }
+      });
+    });
   });
 
 
@@ -38,8 +53,11 @@ $(document).ready(function () {
 // instance.updateTabIndicator();
 // instance.select('.tabs');
 var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-console.log ("userInfo",userInfo);  
-$("#userName").text(userInfo.user.name);
+// console.log ("userInfo",userInfo);  
+if(userInfo)
+{
+  $("#userName").text(userInfo.user.name);
+}
 
 });
 

@@ -72,11 +72,13 @@ module.exports = function(app) {
       // res.status(422).json(err.errors[0].message);
     });
   });
+  
   //Route for logging user out
-  // app.get("/logout", function(req, res) {
-  //   req.logout();
-  //   res.redirect("/");
-  // });
+  app.get("/logout", function(req, res) {
+    req.logout();
+    console.log("routes Logout");
+    res.redirect("/");
+  });
 
   // Route for getting some data about our user to be used client side
   app.post("/api/user_data", function(req, res) {
