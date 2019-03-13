@@ -22,7 +22,7 @@
 
    <nav class="nav-extended">
       <div class="nav-wrapper">
-         <a href="#" id="userName"></a>
+         <a id="userName"></a>
          <a href="#!" class="brand-logo center" id="logoText">LEVEL UP</a>
          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
          <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -46,7 +46,7 @@
       <li class="sidenav-close"><a href="#workout">Log Workout</a></li>
       <li class="sidenav-close"><a href="#leaderboard">Leaderboard</a></li>
       <li class="sidenav-close"><a href="#challenges">Challenges</a></li>
-      <li class="sidenav-close"><a href="#" >Logout</a></li>
+      <li class="sidenav-close"><a href="#">Logout</a></li>
    </ul>
 
 
@@ -64,7 +64,7 @@
                <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
             </div>
             <div id="infoArea1" class="col l9 s12">
-               <h2>Welcome **Participant Name**</h2>
+               <h2>Welcome <h2 id="userName2"></h2> </h2> 
                <p>Your Current Progress: Level **#**</p>
                <p>Calories Needed to Next Level **Progress Bar**</p>
             </div>
@@ -78,10 +78,12 @@
                <img src="./img/levelFiveBadge.png" alt="currentRank" class="rankImage">
             </div>
             <div id="infoArea2" class="col l9 s12">
-                  <ul class="tabs tabs-fixed-width">
-                        <li class="tab"><a class="active" href="#workNew">Log New Workout</a></li>
-                        <li class="tab"><a href="#workOld">Workout Log</a></li>
-                     </ul>
+               <ul class="tabs tabs-fixed-width">
+                  <li class="tab"><a class="active" href="#workNew">Log New Workout</a></li>
+                  <li class="tab"><a href="#workOld">Workout Log</a></li>
+               </ul>
+
+               <!--LogNewWorkout-->
                <div id="workNew">
                   <div class="input-field col l6 s12">
                      <select>

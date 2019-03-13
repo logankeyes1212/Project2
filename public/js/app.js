@@ -58,6 +58,7 @@ var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
 if(userInfo)
 {
   $("#userName").text(userInfo.user.name);
+  $("#userName2").text(userInfo.user.name);
 }
 
 });
