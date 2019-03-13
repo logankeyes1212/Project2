@@ -35,17 +35,6 @@ $(document).ready(function () {
       challengeDuration: $("#duration").val().trim(),
     }
   });
-
-
-
-
-
-
-
-
-
-
-
 });
 
 

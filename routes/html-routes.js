@@ -9,7 +9,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      console.log("hello 2222");
+      // console.log("hello 2222");
       res.redirect("/main");
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
@@ -18,11 +18,13 @@ module.exports = function(app) {
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      console.log("req.user",req.user);  
+      // console.log("req.user",req.user);  
       res.redirect("/main");
-    }
-    console.log("Inside **/login** path");
+    }else{
+    // console.log("Inside **/login** path");
+    // res.redirect("/login");
     res.sendFile(path.join(__dirname, "../public/login.html"));
+    }
   });
 
   // Here we've add our isAuthenticated middleware to this route.
