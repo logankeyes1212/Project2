@@ -4,21 +4,12 @@ var passport = require("../config/passport");
 
 module.exports = function(app) {
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
-<<<<<<< HEAD
-    // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
-    // So we're sending the user back the route to the members page because the redirect will happen on the front end
-    // They won't get this or even be able to access this page if they aren't authed
-    // console.log("/api/login");
-    //res.redirect("/login");
-    res.json({})
-=======
     // res.redirect("/login");
     // res.json(passport.authenticate("local"))
     // console.log("req.user",req.user);
 
     res.json({success:(req.user?"Yes":"No"),user:req.user});
 
->>>>>>> 95202416ecfeb083d08f296b84446e0c0da07096
   });
 
   // app.post("/", function(req, res) {
@@ -81,18 +72,14 @@ module.exports = function(app) {
       // res.status(422).json(err.errors[0].message);
     });
   });
-<<<<<<< HEAD
 
-  app.get("/workOutTypes", function(req, res) {
+  app.get("/api/workOutTypes", function(req, res) {
     db.workOutTypes.findAll({})
     .then(function(dbworkOutTypes) {
       res.json(dbworkOutTypes);
       // console.log(dbworkOutTypes)
     });
   });
-=======
-  
->>>>>>> 95202416ecfeb083d08f296b84446e0c0da07096
   //Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();

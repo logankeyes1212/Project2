@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     $.ajax({
         method: "GET",
-        url: "/workOutTypes"
+        url: "/api/workOutTypes"
 
     }).then(function (data) {
         console.log(data)

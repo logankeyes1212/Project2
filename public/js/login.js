@@ -19,7 +19,6 @@ $(document).ready(function () {
       loginUser(userData.email, userData.password);
       $("#loginEmail").val("");
       $("#loginPassword").val("");
-<<<<<<< HEAD
       }
     });
   
@@ -38,10 +37,8 @@ $(document).ready(function () {
       // .catch(function(err) {
       //   console.log(err);
       // });
-=======
->>>>>>> 95202416ecfeb083d08f296b84446e0c0da07096
     }
-  });
+
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
   function loginUser(email, password) {
@@ -59,7 +56,6 @@ $(document).ready(function () {
         window.location.reload("landingPage.html");
       }
     });
-<<<<<<< HEAD
   
     // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
     function signupUser(email, password, name, city, state) {
@@ -79,7 +75,6 @@ $(document).ready(function () {
       // .catch(function(err) {
       //   console.log(err);
       // });
-=======
   }
   $("#signupSubmit").click(function () {
     event.preventDefault();
@@ -94,7 +89,6 @@ $(document).ready(function () {
     if (!signUpData.email && !signUpData.password && !signUpData.name) {
       alert("Please fill in all the details for signing up");
       return;
->>>>>>> 95202416ecfeb083d08f296b84446e0c0da07096
     }
 
     // If we have an email and password we run the loginUser function and clear the form
@@ -119,4 +113,5 @@ $(document).ready(function () {
       // If there's an error, log the error
     });
   }
+};
 });
