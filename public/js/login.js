@@ -68,6 +68,7 @@ $(document).ready(function() {
         password: password,
         state : state,
         city :city
+        
       }).done(function(data) {
         console.log("data", data);
         window.location.reload(data);

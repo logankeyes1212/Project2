@@ -49,12 +49,12 @@ module.exports = function(app) {
     // console.log(req.body);
     
     db.workOutChallenge.create({
-      name:req.body.name,
+      name: req.body.name,
       goal: req.body.goal,
       challengeDuration: req.body.challengeDuration
      
-    }).then(function(result) {
-      console.log("result",result);
+    }).then(function(challengeResult) {
+      console.log("result ", challengeResult);
       res.redirect("/main");
       // res.json(result);
     }).catch(function(err) {
@@ -64,7 +64,7 @@ module.exports = function(app) {
     });
   });
 
-  
+
   app.post("/api/workOutTypes", function(req, res) {
     // console.log(req.body);
     
