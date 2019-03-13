@@ -15,10 +15,14 @@ nav{
     box-shadow: none!important;  
      
 }
-    /* background-image: url(../img/gravel.png);
-    background-color:rgb(61, 69, 138);
-        box-shadow: none!important;   
-} */
+
+#userName{
+    margin-left: 5%;
+}
+
+#nav-mobile{
+    margin-right: 5%;
+}
 
 #level, #workout, #leaderboard, #challenges, #login, #signup, #loginTab, #signupTab{
     margin-top: 10px;
@@ -152,6 +156,10 @@ nav{
         margin-right: auto;
         margin-top: 1%;
         margin-bottom: 1%;
+    }
+
+    #userName{
+        display: none;
     }
 
 }
