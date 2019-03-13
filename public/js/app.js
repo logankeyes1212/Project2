@@ -3,6 +3,7 @@ $(document).ready(function () {
   // SIDE NAV FUNCTIONS
   $('.tabs').tabs();
   $('.sidenav').sidenav();
+  $('.datepicker').datepicker();
   // $(".button-collapse").sideNav({
   //   closeOnClick: false
   // });
@@ -21,6 +22,21 @@ $(document).ready(function () {
 
   $(document).ready(function(){
     $('select').formSelect();
+    $('#logoutBtn').click(function () {
+      event.preventDefault();
+      console.log("HTML logout");
+      $.get("/logout").then(function (results) {
+        // console.log("userInfo",results);
+        sessionStorage.removeItem('userInfo');
+        sessionStorage.clear();
+        window.location.reload(results);
+        // if (user.success == "Yes") {
+        //   // console.log()
+        //   
+        // 
+        // }
+      });
+    });
   });
 
 
@@ -35,6 +51,15 @@ $(document).ready(function () {
       challengeDuration: $("#duration").val().trim(),
     }
   });
+// instance.updateTabIndicator();
+// instance.select('.tabs');
+var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+// console.log ("userInfo",userInfo);  
+if(userInfo)
+{
+  $("#userName").text(userInfo.user.name);
+}
+
 });
 
 
