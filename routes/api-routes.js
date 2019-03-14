@@ -40,7 +40,7 @@ module.exports = function(app) {
       challengeDuration: req.body.challengeDuration
      
     }).then(function(challengeResult) {
-      console.log("result ", challengeResult);
+      // console.log("result ", challengeResult);
       res.redirect("/main");
       // res.json(result);
     }).catch(function(err) {
