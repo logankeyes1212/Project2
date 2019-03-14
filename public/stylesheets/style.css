@@ -1,6 +1,16 @@
+/* Available Google Font Families
+font-family: 'Noto Serif', serif;
+font-family: 'Oxygen', sans-serif;
+font-family: 'Bitter', serif;
+font-family: 'Anton', sans-serif;
+font-family: 'Fjalla One', sans-serif;
+font-family: 'Teko', sans-serif; */
+
+
 body{
     background-image: url(../img/action-athlete-barbell-841130.jpg);
     background-size: cover;
+    font-family: 'Bitter', serif;
 }
 
 nav{
@@ -9,7 +19,7 @@ nav{
         rgba(61, 69, 138, 0.3), 
       rgb(61, 69, 138, .8)
     ),
-    url(../img/dark-honeycomb.png);
+    url(../img/light-honeycomb.png);
 
     box-shadow: none!important;  
      
@@ -25,13 +35,14 @@ nav{
 
 #level, #workout, #leaderboard, #challenges, #login, #signup, #loginTab, #signupTab{
     margin-top: 10px;
+    
 }
 
 /* Background Colors */
 #progressRow, #workoutRow, #leaderboardRow, #challengesRow, #loginRow, #signupRow{
     padding: 0;
     margin: 0;
-    background-color: rgba(238, 238, 238, 0.75);
+    background-color: rgba(238, 238, 238, 0.65);
 }
 
 #signupSubmit,#loginSubmit, #createWorkout, #createChallenge{
@@ -125,13 +136,25 @@ nav{
 
 @media only screen and (max-width: 992px){
     body{
-        background-image: url(../img/dark-honeycomb.png);
+        background-image: url(../img/light-honeycomb.png);
     }
 
     #progressRow, #workoutRow, #leaderboardRow, #challengesRow{
         padding: 0;
         margin: 0;
         background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    nav{
+        background: 
+        linear-gradient(
+            rgba(61, 69, 138, 0.3), 
+          rgb(61, 69, 138, .8)
+        ),
+        url(../img/dark-honeycomb.png);
+    
+        box-shadow: none!important;  
+         
     }
 
     .status{
