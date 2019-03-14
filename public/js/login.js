@@ -45,13 +45,14 @@ $(document).ready(function () {
     // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
     function signupUser(email, password, name, city, state) {
       // console.log("email" , email);
+      console.log (email, password, name, city, state);
       $.post("/api/signup", {
         name: name,
         email: email,
         password: password,
         state: state,
         city: city
-
+        
       }).done(function (data) {
         // console.log("data", data);
         window.location.reload(data);
