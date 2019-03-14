@@ -11,13 +11,13 @@ module.exports = function(sequelize, DataTypes) {
     // } 
      WorkOutDate: {
             type: DataTypes.DATEONLY,
-            allowNull: false,
+            allowNull: true,
              },
       
 
       workOutDuration: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
       },
       caloriesPerHour: {
         type: DataTypes.INTEGER,
