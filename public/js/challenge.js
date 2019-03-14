@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    var loaded =false;
     $("#createChallenge").click(function () {
         event.preventDefault();
         var challenge = {
@@ -15,9 +16,25 @@ $(document).ready(function () {
         } else {
             createChallenge(challenge.name, challenge.goal, challenge.challengeDuration);
         }
-    })
 
+      
+    });
 
+    if (!loaded) {
+        console.log("loaded", loaded);
+        $.get("/api/challenges").then(function (results) {
+            // $("#challengeContents")
+            for (var index in results) {
+                var tableRow = $("<tr>");
+                tableRow.append("<td> " + results[index].name + "</td>");
+                tableRow.append("<td> " + results[index].goal + "</td>");
+                tableRow.append("<td> " + results[index].challengeDuration + "</td>");
+                $("#challengeContents").append(tableRow);
+            }
+            loaded = true;
+
+        });
+    }
     function createChallenge(name, goal, challengeDuration) {
         // console.log("name ", name);
         $.post("/api/challenge", {
@@ -28,11 +45,7 @@ $(document).ready(function () {
         .done(function (data) {
             // console.log("data ", data);
             window.location.reload(data);
-            // If there's an error, log the error
         })
-        // .catch(function (err) {
-        //     console.log(err);
-        // });
     }
 
     // $.ajax({
