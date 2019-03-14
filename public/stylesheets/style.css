@@ -153,6 +153,16 @@ div.progressBar {
 	display: block;
     width: 20px;
     height: 50px;
+    animation: animate 2.5s;
+}
+
+@keyframes animate {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
 }
 
 
