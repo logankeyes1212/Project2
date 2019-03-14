@@ -22,10 +22,10 @@ INSERT INTO workOutTypes (name, caloriesPerHour) VALUES ("Weight Lifting: Modera
 INSERT INTO workOutTypes (name, caloriesPerHour) VALUES ("Weight Lifting: Vigorous", 514);
 
 
-INSERT INTO users (name, email, password) VALUES ("logan","logan@logan.com","logan")
+INSERT INTO users (name, email, password) VALUES ("logan","logan@logan.com","logan");
 
 
 INSERT INTO workOutLog(workOutDate, workOutDuration, createdDate) VALUES (2011-11-11, 30, now );
 
-INSERT INTO workOutChallenge (name, goal, challengeDuration, createdDate) VALUES ("Challenge one", "goal", 30, now)
+INSERT INTO workOutChallenge (name, goal, challengeDuration, createdDate) VALUES ("Challenge one", "goal", 30, now);
 
