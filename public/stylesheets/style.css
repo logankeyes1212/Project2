@@ -127,11 +127,9 @@ nav{
   }
 
 
-
-.placeholderImages{
-    max-width: 40%;
-    width: 400px;
-}
+  #modalButton{
+      background-color: green;
+  }
 
 
 @media only screen and (max-width: 992px){
