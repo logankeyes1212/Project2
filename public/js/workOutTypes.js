@@ -13,7 +13,7 @@ $(document).ready(function () {
         url: "/api/workOutTypes"
 
     }).then(function (data) {
-        console.log(data)
+        // console.log("mike")
         options(data)
     });
 
