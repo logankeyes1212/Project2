@@ -18,9 +18,6 @@ $(document).ready(function () {
         }
         let page = "#challenges"
         location.assign(page);
-    })
-
-      
     });
 
     if (!loaded) {
