@@ -36,25 +36,33 @@ $(document).ready(function () {
         location.assign(page);
     });
 
+    // moment().format('MMMM Do YYYY, h:mm:ss a');
+    // var goalDate = moment().add(results[index].challengeDuration, 'days').calendar(); 
+    // var timeLeft = moment().endOf(goalDate).fromNow();
+    // var startTimeConverted = moment(results[index].challengeDuration, "MMMM Do YYYY, hh:mm");
+    // var timeDiff = moment().diff(moment(startTimeConverted), "hours");
+    // var timeRemain = timeDiff % results[index].challengeDuration;
+    // var minToArrival = childSnapshot.val().frequency - timeRemain;
+    // var nextTrain = moment().add(minToArrival, "minutes");
+
     if (!loaded) {
         // console.log("loaded", loaded);
         $.get("/api/challenges").then(function (results) {
-            // console.log("loaded", results);
-            // var todayDate = moment().format("DD-MM-YYYY, h:mm");
-            
-            for (var index in results) {
-                
-                var createdDate = moment(results[index].createdAt);
-                
-                // console.log("results[index].challengeDuration",results[index].challengeDuration);
-                var progressDate = createdDate.add(results[index].challengeDuration, 'days');
-                console.log("progressDate",progressDate);
-                var timeLeft = ((moment(progressDate, "HH:mm").diff(moment(), "hours"))/24).toFixed(0) ; 
 
+            // $("#challengeContents")
+
+            for (var index in results) {
+
+                var createdAt = moment().format(results[index].createdAt, 'MMMM Do YYYY, hh:mm a');
+                var goalDeadline = moment(createdAt).add(results[index].challengeDuration, 'days').format('MMMM Do YYYY, hh:mm a');
+                console.log("goalDeadline=", goalDeadline)
+                var timeDiff = moment(goalDeadline, 'MMMM Do YYYY, hh:mm a').endOf().fromNow();  
+                console.log("timeDiff=", timeDiff)
                 var tableRow = $("<tr>");
-                tableRow.append("<td> " + results[index].name+ "</td>"); 
-                tableRow.append("<td> " + results[index].challengeDuration + "</td>");
-               tableRow.append("<td> " + timeLeft + " Days</td>");
+                tableRow.append("<td> " + results[index].name + "</td>");
+                tableRow.append("<td> " + results[index].goal + "</td>");
+                // tableRow.append("<td> " + results[index].challengeDuration + "</td>");
+                tableRow.append("<td> " + timeDiff + "</td>");
                 $("#challengeContents").append(tableRow);
             }
             loaded = true;
@@ -92,7 +100,6 @@ $(document).ready(function () {
       setTimeout(function(){ $(htmlId).hide(); }, 3000);
     }
 
-    
 
 });
 

@@ -169,6 +169,7 @@ div.progressBar {
 @media only screen and (max-width: 992px){
     body{
         background-image: url(../img/light-honeycomb.png);
+        background-size: contain;
     }
 
     #progressRow, #workoutRow, #leaderboardRow, #challengesRow{
