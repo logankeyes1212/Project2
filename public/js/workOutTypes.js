@@ -1,7 +1,7 @@
-//var moment = require('moment');
+
 $(document).ready(function () {
-    
-    var workOutId = []
+
+    var selectedWorkOut;
 
     $('#workOutTypesDropDown').formSelect();
     $('#workOutTypesDropDown').on('contentChanged', function () {
@@ -31,8 +31,17 @@ $(document).ready(function () {
         }
         $("#workOutTypesDropDown").trigger('contentChanged');
         $(document).on("change", "#workOutTypesDropDown", function () {
-            id = $(this).val();
-            workOutId.push(id)
+            var id = $(this).val();
+            id = parseInt(id);
+            let caloriesPerHour = 0;
+            for (i = 0; i < dbworkOutTypes.length; i++) {
+                if (parseInt(dbworkOutTypes[i].id) === id) {
+                    caloriesPerHour = dbworkOutTypes[i].caloriesPerHour;
+                }
+            }
+            selectedWorkOut = { id: id, caloriesPerHour: caloriesPerHour };
+
+            //console.log("Array ",workOutArray);
         });
     }
 
@@ -40,7 +49,10 @@ $(document).ready(function () {
     $("#workOutType").on("click", function () {
         event.preventDefault();
 
-        workOutId = parseInt(workOutId);
+        var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+        var userid = userInfo.user.id;
+
+        const workOutId = parseInt(selectedWorkOut.id);
         if (!workOutId) {
             alert("Please select a work out type");
             return;
@@ -50,17 +62,19 @@ $(document).ready(function () {
 
         // function to create the log object.
         function newLog() {
-            var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-            const workoutdate = $("#workoutDay").val().trim();
-            //workoutdate = moment(workoutdate).format("MM-DD-YYYY");
+            const entereddate = $("#workoutDay").val().trim();
+            console.log(entereddate);
+            const workoutdate = moment(entereddate, "MMM-DD-YYYY");
+            var workOutDurationTime = parseInt($("#exerciseTime").val().trim());
+            console.log("duration " + workoutdate);
             var workOutLog = {
                 workOutTypeId: workOutId,
-                workOutDuration: $("#exerciseTime").val().trim(),
-                workOutDate: workoutdate,
-                caloriesPerHour: 600,
+                workOutDuration: workOutDurationTime,
+                workOutDate: workoutdate.toISOString(),
+                caloriesPerHour: selectedWorkOut.caloriesPerHour,
                 workOutChallengeId: workOutId,
-                UserId: 2
-            }
+                UserId: userid
+            }; console.log("derre" + selectedWorkOut.caloriesPerHour);
             // call the log function to post the log
             logStart(workOutLog);
         }

@@ -128,10 +128,10 @@ console.log(UserInfo)
       
       workOutTypeId:req.body.workOutTypeId,
       workOutDuration:req.body.workOutDuration,
-      WorkOutDate:req.body.WorkOutDate,
+      WorkOutDate:req.body.workOutDate,
+      caloriesPerHour: req.body.caloriesPerHour,
       workOutChallengeId:req.body.workOutChallengeId,
       UserId:req.user.id,
-      caloriesPerHour: req.body.caloriesPerHour,
       createdAt: req.body.createdAt,
       updatedAt: req.body.updatedAt,
       
