@@ -49,6 +49,22 @@ $(document).ready(function () {
     }).fail(function () {
       M.toast({ html: 'Invalid Email Id or Password' });
     });
+
+    // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+    function signupUser(email, password, name, city, state) {
+      // console.log("email" , email);
+      // console.log (email, password, name, city, state);
+      $.post("/api/signup", {
+        name: name,
+        email: email,
+        password: password,
+        state: state,
+        city: city
+        
+      }).done(function (data) {
+        // console.log("data", data);
+        window.location.reload(data);
+        // If there's an error, log the error
   };
 
 
@@ -61,6 +77,7 @@ $(document).ready(function () {
       state: $("#state").val().trim(),
       city: $("#city").val().trim()
     };
+
 
     if (!signUpData.email || !signUpData.password || !signUpData.name || !signUpData.state || !signUpData.city) {
       M.toast({ html: "Please fill in all the details for signing up" });
