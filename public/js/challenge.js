@@ -1,3 +1,5 @@
+// import moment = require("moment");
+
 $(document).ready(function () {
 
     var loaded =false;
@@ -44,8 +46,9 @@ $(document).ready(function () {
     // var nextTrain = moment().add(minToArrival, "minutes");
 
     if (!loaded) {
-        console.log("loaded", loaded);
+        // console.log("loaded", loaded);
         $.get("/api/challenges").then(function (results) {
+
             // $("#challengeContents")
 
             for (var index in results) {
@@ -60,7 +63,6 @@ $(document).ready(function () {
                 tableRow.append("<td> " + results[index].goal + "</td>");
                 // tableRow.append("<td> " + results[index].challengeDuration + "</td>");
                 tableRow.append("<td> " + timeDiff + "</td>");
-
                 $("#challengeContents").append(tableRow);
             }
             loaded = true;
