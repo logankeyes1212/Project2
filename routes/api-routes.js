@@ -1,8 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
-var moment = require('moment');
-
+var UserInfo;
 
 
 module.exports = function(app) {
@@ -10,6 +9,9 @@ module.exports = function(app) {
     // res.redirect("/login");
     // res.json(passport.authenticate("local"))
     // console.log("req.user",req.user);
+
+
+      UserInfo={user:req.user}
 
     res.json({success:(req.user?"Yes":"No"),user:req.user});
 
@@ -88,6 +90,21 @@ module.exports = function(app) {
     res.redirect("/");
   });
 
+//get api for workoutlogs
+app.get("/api/workOutLogs", function (req, res) {
+  console.log("get api workoutlogs")
+  
+console.log(UserInfo)
+  db.workOutLog.findAll({
+      where: {
+          UserId: UserInfo.user.id
+      }
+  }).then(function(dbworkoutlogs) {
+      res.json(dbworkoutlogs);
+      console.log(dbworkoutlogs)
+  });
+});
+
   // Route for getting some data about our user to be used client side
   app.post("/api/user_data", function(req, res) {
      console.log("req.params.email", req.body.email);
@@ -112,9 +129,9 @@ module.exports = function(app) {
       workOutTypeId:req.body.workOutTypeId,
       workOutDuration:req.body.workOutDuration,
       WorkOutDate:req.body.workOutDate,
+      caloriesPerHour: req.body.caloriesPerHour,
       workOutChallengeId:req.body.workOutChallengeId,
       UserId:req.user.id,
-      caloriesPerHour: req.body.caloriesPerHour,
       createdAt: req.body.createdAt,
       updatedAt: req.body.updatedAt,
       
