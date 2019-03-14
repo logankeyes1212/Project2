@@ -132,6 +132,10 @@ nav{
   }
 
 
+  #totalCalories{
+    text-align: center;
+  }
+
 .error
 {
     color: red;

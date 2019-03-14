@@ -36,15 +36,6 @@ $(document).ready(function () {
         location.assign(page);
     });
 
-    // moment().format('MMMM Do YYYY, h:mm:ss a');
-    // var goalDate = moment().add(results[index].challengeDuration, 'days').calendar(); 
-    // var timeLeft = moment().endOf(goalDate).fromNow();
-    // var startTimeConverted = moment(results[index].challengeDuration, "MMMM Do YYYY, hh:mm");
-    // var timeDiff = moment().diff(moment(startTimeConverted), "hours");
-    // var timeRemain = timeDiff % results[index].challengeDuration;
-    // var minToArrival = childSnapshot.val().frequency - timeRemain;
-    // var nextTrain = moment().add(minToArrival, "minutes");
-
     if (!loaded) {
         // console.log("loaded", loaded);
         $.get("/api/challenges").then(function (results) {
