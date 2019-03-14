@@ -1,3 +1,5 @@
+// import moment = require("moment");
+
 $(document).ready(function () {
 
     var loaded =false;
@@ -35,14 +37,24 @@ $(document).ready(function () {
     });
 
     if (!loaded) {
-        console.log("loaded", loaded);
+        // console.log("loaded", loaded);
         $.get("/api/challenges").then(function (results) {
-            // $("#challengeContents")
+            // console.log("loaded", results);
+            // var todayDate = moment().format("DD-MM-YYYY, h:mm");
+            
             for (var index in results) {
+                
+                var createdDate = moment(results[index].createdAt);
+                
+                // console.log("results[index].challengeDuration",results[index].challengeDuration);
+                var progressDate = createdDate.add(results[index].challengeDuration, 'days');
+                console.log("progressDate",progressDate);
+                var timeLeft = ((moment(progressDate, "HH:mm").diff(moment(), "hours"))/24).toFixed(0) ; 
+
                 var tableRow = $("<tr>");
-                tableRow.append("<td> " + results[index].name + "</td>");
-                tableRow.append("<td> " + results[index].goal + "</td>");
+                tableRow.append("<td> " + results[index].name+ "</td>"); 
                 tableRow.append("<td> " + results[index].challengeDuration + "</td>");
+               tableRow.append("<td> " + timeLeft + " Days</td>");
                 $("#challengeContents").append(tableRow);
             }
             loaded = true;
