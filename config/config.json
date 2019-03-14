@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root2",
+    "username": "root",
     "password": "root",
     "database": "siamese",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "dialect": "mysql",
     "port": 8889
   },
