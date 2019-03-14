@@ -12,8 +12,8 @@ $(document).ready(function(){
        // Generate the HTML
         var progressBar = '<h4> Total Calories Burned: '+calsBurned+'</h4>'+
         '<div class ="progressBar" style= width:'+ percentage+'%;></div>'+
-        '<span id="goal_start" style="float: left; font-size: 12px; padding: 5px;">'+0+'</span>'+
-        '<span id="goal-target" style="float: right; font-size: 12px; padding 5px;">'+goalAmount+'</span>';
+        '<span id="goal_start" style="float: left; font-size: 18px; padding: 5px;">'+0+'</span>'+
+        '<span id="goal-target" style="float: right; font-size: 18px; padding 5px;">'+goalAmount+'</span>';
         
         
         // $('.progressBar').animate({width: percentage + '%'}, 1000);
