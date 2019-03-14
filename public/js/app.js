@@ -39,17 +39,6 @@ $(document).ready(function () {
   
 
 
-
-
-  //create challange function
-  $("#createChallenge").click(function () {
-    event.preventDefault();
-    var challenge = {
-      name: $("#challengeName").val().trim(),
-      goal: $("#goal").val().trim(),
-      challengeDuration: $("#duration").val().trim(),
-    }
-  });
 // instance.updateTabIndicator();
 // instance.select('.tabs');
 var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));

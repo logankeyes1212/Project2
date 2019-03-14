@@ -70,7 +70,8 @@ $(document).ready(function () {
             // call the log function to post the log
             logStart(workOutLog);
         }
-
+        let page = "#workout"
+        location.assign(page);
     })
     // function to post workout log
     function logStart(workOutLog) {
