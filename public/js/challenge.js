@@ -8,14 +8,28 @@ $(document).ready(function () {
             goal: $("#goal").val().trim(),
             challengeDuration: $("#duration").val().trim(),
           
-
         }
         if (!challenge.name || !challenge.goal || !challenge.challengeDuration) {
             alert("Please fill in all the details for challenge");
             return;
-        } else {
+        }  
+        else if(!challenge.name) {
+            showErrorMsg("#challengeNameError","Please fill in a Name for your Challenge");
+            return false;
+          }
+        else if ((challenge.goal < 1) || (challenge.goal > 999999)) {
+            showErrorMsg("#challengeGoalError","Please enter a number between 1-999999");
+            return false;
+          }
+        else if ((challenge.challengeDuration < 1) || (challenge.challengeDuration > 1825)) {
+            showErrorMsg("#challengeDurError","Please enter a number between 1-1825");
+            return false;
+          }
+        
+        else {
             createChallenge(challenge.name, challenge.goal, challenge.challengeDuration);
         }
+
         let page = "#challenges"
         location.assign(page);
     });
@@ -57,6 +71,16 @@ $(document).ready(function () {
     //     //options(data)
     // });
 
+    function showErrorMsg(htmlId,errorMsg)
+    {
+      console.log("htmlId",htmlId);
+      console.log("errorMsg",errorMsg);
+      $(htmlId).html(errorMsg);
+      $(htmlId).show();
+      setTimeout(function(){ $(htmlId).hide(); }, 3000);
+    }
+
+    
 
 });
 

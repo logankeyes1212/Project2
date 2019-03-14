@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+  M.AutoInit(); //this should auto intiate everything needed but rest of code is in place just in case
   // SIDE NAV FUNCTIONS
   $('.tabs').tabs();
   $('.sidenav').sidenav();
@@ -17,7 +17,7 @@ $(document).ready(function () {
     }
   });
 
-
+  M.updateTextFields();
   
     $('select').formSelect();
     
