@@ -49,6 +49,8 @@ $(document).ready(function () {
       goal: $("#goal").val().trim(),
       challengeDuration: $("#duration").val().trim(),
     }
+    let page = "#challenges"
+    location.assign(page);
   });
 // instance.updateTabIndicator();
 // instance.select('.tabs');
