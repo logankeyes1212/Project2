@@ -310,18 +310,21 @@
                      <div class="input-field col s12">
                         <input id="challengeName" type="text" class="validate">
                         <label for="challengeName">Challenge name</label>
+                        <span class="error" id="challengeNameError"></span>
                      </div>
                   </div>
                   <div class="row">
                      <div class="input-field col s12">
-                        <input id="goal" type="number" class="validate">
+                        <input id="goal" type="number" class="validate" min="1" max="999999">
                         <label for="goal">Goal - Calories To Burn</label>
+                        <span class="error" id="challengeGoalError"></span>
                      </div>
                   </div>
                   <div class="row">
                      <div class="input-field col s12">
-                        <input id="duration" type="number" class="validate">
+                        <input id="duration" type="number" class="validate" min="1" max="1825">
                         <label for="duration">Duration - Days</label>
+                        <span class="error" id="challengeDurError"></span>
                      </div>
                   </div>
                   <div class="row">
