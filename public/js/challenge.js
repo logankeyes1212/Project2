@@ -16,6 +16,9 @@ $(document).ready(function () {
         } else {
             createChallenge(challenge.name, challenge.goal, challenge.challengeDuration);
         }
+        let page = "#challenges"
+        location.assign(page);
+    })
 
       
     });
@@ -56,7 +59,6 @@ $(document).ready(function () {
     //     console.log(data)
     //     //options(data)
     // });
-
 
 
 });
