@@ -20,8 +20,9 @@ $(document).ready(function () {
   // instance.updateTabIndicator();
   // instance.select('.tabs');
 
-  $(document).ready(function(){
+  
     $('select').formSelect();
+    
     $('#logoutBtn').click(function () {
       event.preventDefault();
       console.log("HTML logout");
@@ -37,7 +38,7 @@ $(document).ready(function () {
         // }
       });
     });
-  });
+  
 
 
 
