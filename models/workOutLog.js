@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     //  sequilize will do this below
     // } 
      WorkOutDate: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATEONLY,
             allowNull: false,
              },
       
