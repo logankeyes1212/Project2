@@ -12,12 +12,19 @@ $(document).ready(function () {
     };
 
     if (!userData.email || !userData.password) {
+      if (!userData.email) {
+        M.toast({ html: "Please fill in Email id" });
+      }
+      else if (!userData.password) {
+        M.toast({ html: "Please fill Password" });
+      }
+      else
+        M.toast({ html: "Please fill both Email and password" });
       return;
     }
     else {
 
       // If we have an email and password we run the loginUser function and clear the form
-      $("#error-msg").html($("#toast-container"));
       loginUser(userData.email, userData.password);
       $("#loginEmail").val("");
       $("#loginPassword").val("");
@@ -42,59 +49,46 @@ $(document).ready(function () {
     }).fail(function () {
       M.toast({ html: 'Invalid Email Id or Password' });
     });
-    // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-    function signupUser(email, password, name, city, state) {
-      // console.log("email" , email);
-      console.log (email, password, name, city, state);
-      $.post("/api/signup", {
-        name: name,
-        email: email,
-        password: password,
-        state: state,
-        city: city
-        
-      }).done(function (data) {
-        // console.log("data", data);
-        window.location.reload(data);
-        // If there's an error, log the error
+  };
 
-        // alert( "error" );
-      });
+
+  $("#signupSubmit").click(function () {
+    event.preventDefault();
+    var signUpData = {
+      name: $("#signupName").val().trim(),
+      email: $("#signupEmail").val().trim(),
+      password: $("#signupPassword").val().trim(),
+      state: $("#state").val().trim(),
+      city: $("#city").val().trim()
+    };
+
+    if (!signUpData.email || !signUpData.password || !signUpData.name || !signUpData.state || !signUpData.city) {
+      M.toast({ html: "Please fill in all the details for signing up" });
+      return;
     }
-    $("#signupSubmit").click(function () {
-      event.preventDefault();
-      var signUpData = {
-        name: $("#signupName").val().trim(),
-        email: $("#signupEmail").val().trim(),
-        password: $("#signupPassword").val().trim(),
-        state: $("#state").val().trim(),
-        city: $("#city").val().trim()
-      };
 
-      if (!signUpData.email && !signUpData.password && !signUpData.name) {
-        alert("Please fill in all the details for signing up");
-        return;
-      }
 
-      // If we have an email and password we run the loginUser function and clear the form
-      signupUser(signUpData.email, signUpData.password, signUpData.name, signUpData.city, signUpData.state);
+    // If we have an email and password we run the loginUser function and clear the form
+    signupUser(signUpData.email, signUpData.password, signUpData.name, signUpData.city, signUpData.state);
+
+  });
+
+  // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+  function signupUser(email, password, name, city, state) {
+    // console.log("email" , email);
+    console.log(email, password, name, city, state);
+    $.post("/api/signup", {
+      name: name,
+      email: email,
+      password: password,
+      state: state,
+      city: city
+
+    }).done(function (data) {
+      // console.log("data", data);
+      window.location.reload(data);
+      // If there's an error, log the error
 
     });
-
-    // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-    function signupUser(email, password, name, city, state) {
-      console.log("email", email);
-      $.post("/api/signup", {
-        name: name,
-        email: email,
-        password: password,
-        state: state,
-        city: city
-      }).done(function (data) {
-        console.log("data", data);
-        window.location.reload(data);
-        // If there's an error, log the error
-      });
-    }
-  };
-});
+  }
+ });
