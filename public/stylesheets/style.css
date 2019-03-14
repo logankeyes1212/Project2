@@ -132,6 +132,15 @@ nav{
   }
 
 
+.error
+{
+    color: red;
+    margin-left: 10%;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
 @media only screen and (max-width: 992px){
     body{
         background-image: url(../img/light-honeycomb.png);
