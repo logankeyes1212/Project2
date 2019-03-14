@@ -18,8 +18,9 @@
    <script src="./js/challenge.js"></script>
    <script src="./js/workOutTypes.js"></script>
    <script src="./js/workOutLogs.js"></script>
-</head>
+   <script src="./js/progressBar.js"></script>
 
+</head>
 <body>
    <!-- NAV BAR AREA -->
 
@@ -81,7 +82,10 @@
             <div id="infoArea1" class="col l9 s12">
                <h2>Welcome <h2 id="userName2"></h2> </h2> 
                <p>Your Current Progress: Level **#**</p>
-               <p>Calories Needed to Next Level **Progress Bar**</p>
+               <p>Calories Needed to Next Level</p>
+               <div class="container">
+                  <div id ="prog-bar"></div>
+               </div>
             </div>
          </div>
       </div>
@@ -286,17 +290,17 @@
                      <thead>
                         <tr>
                            <th>Current Challenges</th>
-                           <th>Progress</th>
+                           <th>Challenge Goal</th>
                            <th>Time Remaining</th>
                         </tr>
                      </thead>
 
-                     <tbody>
-                        <tr>
+                     <tbody id="challengeContents">
+                        <!-- <tr>
                            <td>Stop Being Fat</td>
-                           <td>10/100000 Calories Burned</td>
+                           <td>1000 Calories</td>
                            <td>5 Months</td>
-                        </tr>
+                        </tr> -->
 
                      </tbody>
                   </table>
@@ -313,13 +317,13 @@
                   <div class="row">
                      <div class="input-field col s12">
                         <input id="goal" type="number" class="validate">
-                        <label for="goal">Goal</label>
+                        <label for="goal">Goal - Calories To Burn</label>
                      </div>
                   </div>
                   <div class="row">
                      <div class="input-field col s12">
                         <input id="duration" type="number" class="validate">
-                        <label for="duration">Duration</label>
+                        <label for="duration">Duration - Days</label>
                      </div>
                   </div>
                   <div class="row">

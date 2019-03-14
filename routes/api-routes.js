@@ -68,6 +68,14 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/challenges", function(req, res) {
+    db.workOutChallenge.findAll({})
+    .then(function(challenges) {
+      // console.log(challenges);
+      res.json(challenges);
+    });
+  });
+
   app.get("/api/workOutTypes", function(req, res) {
     db.workOutTypes.findAll({})
     .then(function(dbworkOutTypes) {
