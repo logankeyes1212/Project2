@@ -69,8 +69,9 @@
                         <form class="col l8 push-l2 s12">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="loginEmail" type="text" class="validate">
+                                    <input id="loginEmail" type="email" class="validate">
                                     <label for="loginEmail">Email Id</label>
+                                    <span class="error" id="loginEmailError"></span>
                                 </div>
                             </div>
 
@@ -78,6 +79,7 @@
                                 <div class="input-field col s12">
                                     <input id="loginPassword" type="password" class="validate">
                                     <label for="loginPassword">Password</label>
+                                    <span class="error" id="loginPwdError"></span>
                                 </div>
                             </div>
 
@@ -86,11 +88,7 @@
                                 <div class="col s12">
                                     <button class="btn" type="submit" id="loginSubmit"
                                         name="action">Submit</button>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col s12" id="error-msg">
-                                    <!-- <div id="toast-container"></div> -->
+                                    <span class="error" id="formErrorMsg"></span>
                                 </div>
                             </div>
                         </form>
@@ -108,14 +106,16 @@
                             <div class="row">
                                 <div class="input-field col s12">
                                     <input id="signupName" type="text" class="validate">
-                                    <label for="signupName">First and Last Name</label>
+                                    <label for="signupName">First and Last Name <span class="red-text"> * </span></label>
+                                    <span class="error" id="signupNameError"></span>
                                 </div>
                             </div>
                             <div class="row">
 
                                 <div class="input-field col s6">
                                     <input id="city" type="text" class="validate">
-                                    <label for="city">City</label>
+                                    <label for="city">City <span class="red-text"> * </span></label>
+                                    <span class="error" id="signupCityError"></span>
                                 </div>
                                 <div class="input-field col s6">
                                     <!-- <input id="state" type="text" class="validate">
@@ -173,25 +173,29 @@
                                         <option value="Wisconsin">Wisconsin</option>
                                         <option value="Wyoming">Wyoming</option>
                                         </select>
-                                      <label>State</label>
-
+                                      <label>State <span class="red-text"> * </span></label>
+                                      <span class="error" id="signupStateError"></span>
                                 </div>
+                                
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
                                     <input id="signupEmail" type="email" class="validate">
-                                    <label for="signupEmail">Email</label>
+                                    <label for="signupEmail">Email <span class="red-text"> * </span></label>
+                                    <span class="error" id="signupEmailError"></span>
                                 </div>
                                 <div class="input-field col s6">
                                     <input id="signupPassword" type="password" class="validate">
-                                    <label for="signupPassword">Create Password</label>
+                                    <label for="signupPassword">Create Password <span class="red-text"> * </span></label>
+                                    <span class="error" id="signupPasswordError"></span>
                                 </div>
+
                             </div>
                             <div class="row"></div>
                             <div class="row">
                                 <div class="col s12">
                                     <button class="btn" type="submit" id="signupSubmit"
-                                        name="action">Submit</button>
+                                        name="action">Submit</button> <span class="error" id="signupErrorMsg"></span>
                                 </div>
                             </div>
                         </form>
