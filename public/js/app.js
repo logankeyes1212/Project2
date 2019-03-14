@@ -4,10 +4,9 @@ $(document).ready(function () {
   $('.tabs').tabs();
   $('.sidenav').sidenav();
   $('.datepicker').datepicker();
-  // $(".button-collapse").sideNav({
-  //   closeOnClick: false
-  // });
 
+  //modal
+  $('.modal').modal();
 
   var elem = document.querySelector('.sidenav');
   var instance = M.Sidenav.init(elem, {
@@ -17,8 +16,7 @@ $(document).ready(function () {
       $('.tabs').tabs();
     }
   });
-  // instance.updateTabIndicator();
-  // instance.select('.tabs');
+
 
   
     $('select').formSelect();
