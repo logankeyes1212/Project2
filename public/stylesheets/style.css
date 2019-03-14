@@ -99,17 +99,17 @@ nav{
 
   /* label color */
   .input-field label {
-    color: rgb(61, 61, 61) !important;;
+    color: rgb(0, 0, 0) !important;;
     font-size: 18px;
   }
   /* label focus color */
   .input-field input:focus + label {
-    color: rgb(124, 66, 0) !important;
+    color: rgb(0, 0, 0) !important;
   }
   /* label underline focus color */
   .input-field input:focus {
-    border-bottom: 1px solid rgb(124, 66, 0) !important;
-    box-shadow: 0 1px 0 0 rgba(124, 66, 0, 0.3) !important;;
+    border-bottom: 1px solid rgb(0, 0, 0) !important;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.3) !important;;
   }
   /* valid color */
   .input-field input.valid {
