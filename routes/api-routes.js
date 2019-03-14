@@ -2,6 +2,8 @@
 var db = require("../models");
 var passport = require("../config/passport");
 
+
+
 module.exports = function(app) {
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     // res.redirect("/login");
@@ -49,7 +51,7 @@ module.exports = function(app) {
   app.post("/api/workOutTypes", function(req, res) {
     // console.log(req.body);
     
-    db.workOutChallenge.create({
+    db.workOutTypes.create({
       name:req.body.name,
 
     }).then(function(result) {
@@ -87,6 +89,45 @@ module.exports = function(app) {
     }).done(function(userInfo) {
       console.log("userInfo", userInfo.dataValues);
       res.json(userInfo.dataValues);
+    });
+  });
+
+  // post api for workout log
+  app.post("/api/workOutLog", function(req, res) {
+    // console.log(req.body);
+    console.log('Logan');
+    console.log(req);
+    
+    db.workOutLog.create({
+      
+      workOutTypeId:req.body.workOutTypeId,
+      workOutDuration:req.body.workOutDuration,
+      WorkOutDate:req.body.WorkOutDate,
+      workOutChallengeId:req.body.workOutChallengeId,
+      UserId:req.user.id,
+      caloriesPerHour: req.body.caloriesPerHour,
+      createdAt: req.body.createdAt,
+      updatedAt: req.body.updatedAt,
+      
+
+    }).then(function(result) {
+      // console.log("result",result);
+      //res.redirect("/main");
+      res.json(result);
+    }).catch(function(err) {
+      // console.log(err);
+      res.json(err);
+      // res.status(422).json(err.errors[0].message);
+    });
+  });
+
+  // api to pull challenges
+  app.get("/api/workOutChallenges", function(req, res) {
+    console.log("inside the get challenges");
+    db.workOutChallenges.findAll({})
+    .then(function(dbworkOutChallenges) {
+      //res.json(dbworkOutTypes);
+      console.log(dbworkOutChallenges)
     });
   });
 

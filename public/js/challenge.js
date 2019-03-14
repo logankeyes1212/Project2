@@ -34,6 +34,18 @@ $(document).ready(function () {
         //     console.log(err);
         // });
     }
+
+    // $.ajax({
+    //     method: "GET",
+    //     url: "/api/workOutChallenges"
+
+    // }).then(function (data) {
+    //     console.log(data)
+    //     //options(data)
+    // });
+
+
+
 });
 
 
