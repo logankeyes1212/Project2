@@ -61,6 +61,7 @@ $(document).ready(function () {
                 workOutChallengeId: workOutId,
                 UserId: 2
             }
+            console.log(workoutdate)
             // call the log function to post the log
             logStart(workOutLog);
         }
