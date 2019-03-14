@@ -1,7 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
-
+var UserInfo;
 
 
 module.exports = function(app) {
@@ -9,6 +9,9 @@ module.exports = function(app) {
     // res.redirect("/login");
     // res.json(passport.authenticate("local"))
     // console.log("req.user",req.user);
+
+
+      UserInfo={user:req.user}
 
     res.json({success:(req.user?"Yes":"No"),user:req.user});
 
@@ -78,6 +81,21 @@ module.exports = function(app) {
     console.log("routes Logout");
     res.redirect("/");
   });
+
+//get api for workoutlogs
+app.get("/api/workOutLogs", function (req, res) {
+  console.log("get api workoutlogs")
+  
+console.log(UserInfo)
+  db.workOutLog.findAll({
+      where: {
+          UserId: UserInfo.user.id
+      }
+  }).then(function(dbworkoutlogs) {
+      res.json(dbworkoutlogs);
+      console.log(dbworkoutlogs)
+  });
+});
 
   // Route for getting some data about our user to be used client side
   app.post("/api/user_data", function(req, res) {
