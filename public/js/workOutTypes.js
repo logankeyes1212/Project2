@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     var selectedWorkOut;
-
+    
     $('#workOutTypesDropDown').formSelect();
     $('#workOutTypesDropDown').on('contentChanged', function () {
         $(this).formSelect();
@@ -71,8 +71,8 @@ $(document).ready(function () {
                 workOutTypeId: workOutId,
                 workOutDuration: workOutDurationTime,
                 workOutDate: workoutdate.toISOString(),
-                caloriesPerHour: selectedWorkOut.caloriesPerHour,
-                workOutChallengeId: workOutId,
+                caloriesPerHour: selectedWorkOut.caloriesPerHour/ 60 *workOutDurationTime,
+                workOutChallengeId: 1,
                 UserId: userid
             }; console.log("derre" + selectedWorkOut.caloriesPerHour);
             // call the log function to post the log
