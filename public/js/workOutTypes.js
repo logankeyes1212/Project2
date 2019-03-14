@@ -1,7 +1,7 @@
-//var moment = require('moment');
+
 $(document).ready(function () {
     
-    var workOutId = []
+    var workOutArray= []
 
     $('#workOutTypesDropDown').formSelect();
     $('#workOutTypesDropDown').on('contentChanged', function () {
@@ -31,16 +31,23 @@ $(document).ready(function () {
         }
         $("#workOutTypesDropDown").trigger('contentChanged');
         $(document).on("change", "#workOutTypesDropDown", function () {
-            id = $(this).val();
-            workOutId.push(id)
+            var id = $(this).val();
+            id = parseInt(id);
+            let caloriesPerHour =0;
+            for(i=0; i<dbworkOutTypes.length; i++){
+                if(parseInt(dbworkOutTypes[i].id) === id){
+                    caloriesPerHour = dbworkOutTypes[i].caloriesPerHour;
+                    
+                }
+            }
+            workOutArray.push({id:id,caloriesPerHour:caloriesPerHour})
         });
     }
 
     // on click of submitting the workout you performed into workoutlog
     $("#workOutType").on("click", function () {
         event.preventDefault();
-
-        workOutId = parseInt(workOutId);
+        const workOutId = parseInt(workOutArray[0].id);
         if (!workOutId) {
             alert("Please select a work out type");
             return;
@@ -50,14 +57,13 @@ $(document).ready(function () {
 
         // function to create the log object.
         function newLog() {
-            var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-            const workoutdate = $("#workoutDay").val().trim();
-            //workoutdate = moment(workoutdate).format("MM-DD-YYYY");
+            const entereddate = $("#workoutDay").val().trim();
+            const workoutdate = moment(entereddate,"MM-DD-YYYY");
             var workOutLog = {
                 workOutTypeId: workOutId,
                 workOutDuration: $("#exerciseTime").val().trim(),
-                workOutDate: workoutdate,
-                caloriesPerHour: 600,
+                workOutDate: workoutdate.toISOString(),
+                caloriesPerHour: workOutArray[0].caloriesPerHour,
                 workOutChallengeId: workOutId,
                 UserId: 2
             }

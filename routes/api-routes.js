@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+var moment = require('moment');
 
 
 
@@ -102,7 +103,7 @@ module.exports = function(app) {
       
       workOutTypeId:req.body.workOutTypeId,
       workOutDuration:req.body.workOutDuration,
-      WorkOutDate:req.body.WorkOutDate,
+      WorkOutDate:req.body.workOutDate,
       workOutChallengeId:req.body.workOutChallengeId,
       UserId:req.user.id,
       caloriesPerHour: req.body.caloriesPerHour,
