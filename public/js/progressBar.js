@@ -32,29 +32,29 @@ $(document).ready(function () {
             calories += parseInt(dbworkoutlogs[i].caloriesPerHour);
         };
         totalCalories.push(calories)
-    
-
-    console.log("challengeGoals", challengeGoals[0]);
-    console.log("totalCalories", totalCalories[0]);
-    // Variables 
-    var goalAmount = challengeGoals[0]; // Goal amount from user data db.workOutChallenge.goal
-    var calsBurned = totalCalories[0]; // Total from users workouts logged 
-    var percentage = (calsBurned / goalAmount) * 100;
-
-    // Function to create the progress bar
-    function goalProgress() {
-
-        // Generate the HTML
-        var progressBar = '<h5> Total Calories Burned: ' + calsBurned + '</h5><h5>Calorie Burn Goal: '+goalAmount+'</h5>'+
-            '<div class ="progressBar" style= width:' + percentage + '%;></div>' +
-            '<span id="goal_start" style="float: left; font-size: 18px; padding: 5px;">' + 0 + '</span>' +
-            '<span id="goal-target" style="float: right; font-size: 18px; padding 5px;">' + goalAmount + '</span>';
 
 
-        // $('.progressBar').animate({width: percentage + '%'}, 1000);
-        $("#prog-bar").append(progressBar);
-    };
-    goalProgress();
+        console.log("challengeGoals", challengeGoals[0]);
+        console.log("totalCalories", totalCalories[0]);
+        // Variables 
+        var goalAmount = challengeGoals[0]; // Goal amount from user data db.workOutChallenge.goal
+        var calsBurned = totalCalories[0]; // Total from users workouts logged 
+        var percentage = (calsBurned / goalAmount) * 100;
+
+        // Function to create the progress bar
+        function goalProgress() {
+
+            // Generate the HTML
+            var progressBar = '<h5> Total Calories Burned: ' + calsBurned + '</h5><h5>Calorie Burn Goal: ' + goalAmount + '</h5>' +
+                '<div class ="progressBar" style= width:' + percentage + '%;></div>' +
+                '<span id="goal_start" style="float: left; font-size: 18px; padding: 5px;">' + 0 + '</span>' +
+                '<span id="goal-target" style="float: right; font-size: 18px; padding 5px;">' + goalAmount + '</span>';
+
+
+            // $('.progressBar').animate({width: percentage + '%'}, 1000);
+            $("#prog-bar").append(progressBar);
+        };
+        goalProgress();
     }
 });
 

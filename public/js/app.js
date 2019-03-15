@@ -18,36 +18,35 @@ $(document).ready(function () {
   });
 
   M.updateTextFields();
-  
-    $('select').formSelect();
-    
-    $('#logoutBtn').click(function () {
-      event.preventDefault();
-      console.log("HTML logout");
-      $.get("/logout").then(function (results) {
-        // console.log("userInfo",results);
-        sessionStorage.removeItem('userInfo');
-        sessionStorage.clear();
-        window.location.reload(results);
-        // if (user.success == "Yes") {
-        //   // console.log()
-        //   
-        // 
-        // }
-      });
+
+  $('select').formSelect();
+
+  $('#logoutBtn').click(function () {
+    event.preventDefault();
+    console.log("HTML logout");
+    $.get("/logout").then(function (results) {
+      // console.log("userInfo",results);
+      sessionStorage.removeItem('userInfo');
+      sessionStorage.clear();
+      window.location.reload(results);
+      // if (user.success == "Yes") {
+      //   // console.log()
+      //   
+      // 
+      // }
     });
-  
+  });
 
 
-// instance.updateTabIndicator();
-// instance.select('.tabs');
-var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-// console.log ("userInfo",userInfo);  
-if(userInfo)
-{
-  $("#userName").text(userInfo.user.name);
-  $("#userName2").text("Welcome " + userInfo.user.name);
-}
+
+  // instance.updateTabIndicator();
+  // instance.select('.tabs');
+  var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+  // console.log ("userInfo",userInfo);  
+  if (userInfo) {
+    $("#userName").text(userInfo.user.name);
+    $("#userName2").text("Welcome " + userInfo.user.name);
+  }
 
 });
 
