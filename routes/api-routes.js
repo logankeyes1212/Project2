@@ -31,6 +31,7 @@ module.exports = function(app) {
       res.redirect("/login");
     });
   });
+
   app.post("/api/challenge", function(req, res) {
     // console.log(req.body);
     
@@ -47,6 +48,44 @@ module.exports = function(app) {
       console.log(err);
       res.json(err);
       // res.status(422).json(err.errors[0].message);
+    });
+  });
+
+  app.get("/api/allUsers", function(req, res) {
+    db.User.findAll({})
+    .then(function(users) {
+      // console.log(challenges);
+      res.json(users);
+    });
+  });
+
+  app.get("/api/userByCity/:userCity", function(req, res) {
+    db.User.findAll({ 
+      where: {
+        city: req.params.userCity,
+      },
+      order: [
+        ['city', 'ASC'],
+      ],
+    })
+    .then(function(users) {
+      // console.log(challenges);
+      res.json(users);
+    });
+  });
+
+  app.get("/api/userByState/:userState", function(req, res) {
+    db.User.findAll({ 
+      where: {
+        state: req.params.userState,
+      },
+      order: [
+        ['state', 'ASC'],
+      ],
+    })
+    .then(function(users) {
+      // console.log(challenges);
+      res.json(users);
     });
   });
 
