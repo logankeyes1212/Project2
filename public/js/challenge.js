@@ -1,15 +1,14 @@
-// import moment = require("moment");
-
 $(document).ready(function () {
 
     var loaded = false;
     $("#createChallenge").click(function () {
         event.preventDefault();
+
+        // Get the Challenge infoemation from ths user and do some validations
         var challenge = {
             name: $("#challengeName").val().trim(),
             goal: $("#goal").val().trim(),
             challengeDuration: $("#duration").val().trim(),
-
         }
         if (!challenge.name || !challenge.goal || !challenge.challengeDuration) {
             alert("Please fill in all the details for challenge");
@@ -29,6 +28,7 @@ $(document).ready(function () {
         }
 
         else {
+            // If all the validations are passed, then do Ajax call to create the challenge under user
             createChallenge(challenge.name, challenge.goal, challenge.challengeDuration);
         }
 
@@ -37,18 +37,24 @@ $(document).ready(function () {
     });
 
     if (!loaded) {
-        // console.log("loaded", loaded);
+        // If all the validations are passed, then do Ajax call to create the challenge under user
         $.get("/api/challenges").then(function (results) {
 
-            // $("#challengeContents")
-
             for (var index in results) {
+                
+                // Get the created At data from Table and also the duration
 
                 var createdAt = moment().format(results[index].createdAt, 'MMMM Do YYYY, hh:mm a');
+                
+                // Use both to get the Goal Deadline 
                 var goalDeadline = moment(createdAt).add(results[index].challengeDuration, 'days').format('MMMM Do YYYY, hh:mm a');
-                console.log("goalDeadline=", goalDeadline)
+                console.log("goalDeadline=", goalDeadline);
+
+                // Then calculate the time Left to finish the goal
                 var timeDiff = moment(goalDeadline, 'MMMM Do YYYY, hh:mm a').endOf().fromNow();
-                console.log("timeDiff=", timeDiff)
+                console.log("timeDiff=", timeDiff);
+
+                // Display the info in the table
                 var tableRow = $("<tr>");
                 tableRow.append("<td> " + results[index].name + "</td>");
                 tableRow.append("<td> " + results[index].goal + "</td>");
@@ -60,6 +66,8 @@ $(document).ready(function () {
 
         });
     }
+
+    // Ajax call to add new challenges for that user
     function createChallenge(name, goal, challengeDuration) {
         // console.log("name ", name);
         $.post("/api/challenge", {
@@ -73,15 +81,7 @@ $(document).ready(function () {
             })
     }
 
-    // $.ajax({
-    //     method: "GET",
-    //     url: "/api/workOutChallenges"
-
-    // }).then(function (data) {
-    //     console.log(data)
-    //     //options(data)
-    // });
-
+    // Function to show Error Message for the validations
     function showErrorMsg(htmlId, errorMsg) {
         console.log("htmlId", htmlId);
         console.log("errorMsg", errorMsg);

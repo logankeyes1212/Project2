@@ -8,10 +8,10 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
 
+  // Redirection for / route, if Authenticated go to Main page else got to Login Page  
   app.get("/", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      // console.log("hello 2222");
       res.redirect("/main");
     }
     else {
@@ -19,54 +19,21 @@ module.exports = function(app) {
     }
   });
 
+  // // Redirection of the /Login to HTML Route for the Login page
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      // console.log("req.user",req.user);  
       res.redirect("/main");
     }else{
-    // console.log("Inside **/login** path");
-    // res.redirect("/login");
+
     res.sendFile(path.join(__dirname, "../public/login.html"));
     }
   });
 
+  // Redirection of the /main to HTML Route for the Main page
   app.get("/main", isAuthenticated, function(req, res) {
-    // console.log("req.user", req.user);
     res.sendFile(path.join(__dirname, "../public/landingPage.html"),req.user);
-   // res.send(path.join(__dirname, "../public/landingPage.html"),req);
   });
 
-
-  // app.get("/workOutTypes", function(req, res) {
-  //   db.workOutTypes.findAll({})
-  //   .then(function(dbworkOutTypes) {
-  //     res.json(dbworkOutTypes);
-  //     // console.log(dbworkOutTypes)
-      
-  
-    // Handlebars requires an object to be sent to the index handlebars file.
-    
-
-    // 2. Loop through the name, and send those that are pets to the index handlebars file.
-  //   var data = {
-  //     name: []
-  //   };
-  
-  //   for (var i = 0; i < dbworkOutTypes.length; i += 1) {
-  // //     // Get the current animal.
-  //     var workOutTypeName = dbworkOutTypes[i].name;
-  // console.log(workOutTypeName)
-  //     // Check if this animal is a pet.
-      
-      
-        // <option value="1">Running</option>
-      
-    // }
-
-  // console.log(data)
-    // res.render("index", data);
-  // });
-// });
 
 };

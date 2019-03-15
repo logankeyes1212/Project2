@@ -2,6 +2,7 @@ $(document).ready(function () {
 
 
   $('#loginlink').click();
+
   // When the form is submitted, we validate there's an email and password entered
   $("#loginSubmit").click(function () {
     $("#formErrorMsg").hide();
@@ -14,6 +15,7 @@ $(document).ready(function () {
 
   });
 
+  // Login Form Validation for Email and Password
   function loginvalidation(userData) {
     if (!userData.email) {
       showErrorMsg("#loginEmailError", "Please fill in Email id");
@@ -28,13 +30,14 @@ $(document).ready(function () {
       return false;
     }
     else {
+      // If the all the validations are passed, then do Ajax call to check the information
       loginUser(userData.email.trim(), userData.password.trim());
       $("#loginEmail").val("");
       $("#loginPassword").val("");
     }
-
   }
-  // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+
+  // loginUser does a post to our "api/login" route and if successful, redirects us the the Main page
   function loginUser(email, password) {
 
     $.post("/api/login", {
@@ -43,21 +46,19 @@ $(document).ready(function () {
     }).done(function (user) {
       // console.log("userInfo",user);
       if (user.success == "Yes") {
-        // console.log()
+      // Store the user info in the Session for further use. Since Password is encrypted, this should not be an issue    
         sessionStorage.removeItem('userInfo');
         sessionStorage.clear();
         sessionStorage.setItem('userInfo', JSON.stringify(user));
         window.location.reload("landingPage.html");
       }
     }).fail(function () {
-      // M.toast({ html: 'Invalid Email Id or Password' });
       showErrorMsg("#formErrorMsg", 'Invalid Email Id or Password');
     });
   }
 
 
-
-
+  // Once the sign up form is filled, get all the values
   $("#signupSubmit").click(function () {
     event.preventDefault();
     var signUpData = {
@@ -70,6 +71,7 @@ $(document).ready(function () {
     signupvalidation(signUpData);
   });
 
+  // Form Validation for all the sign up fields 
   function signupvalidation(signUpData) {
     if (!signUpData.name) {
       showErrorMsg("#signupNameError", "Please fill in Name");
@@ -95,14 +97,16 @@ $(document).ready(function () {
       showErrorMsg("#signupPasswordError", "Please fill Password");
       return false;
     }
+    // Call in a seperate method for Password Validation
     else if (passwordValidation(signUpData.password)) {
+      // Once all the validations are passed, do Ajax call
       signupUser(signUpData.email.trim(), signUpData.password.trim(), signUpData.name.trim(), signUpData.city.trim(), signUpData.state.trim());
     }
 
   }
 
 
-  // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+  // Do a Ajax call to create a new user in the Database using the Signup information
   function signupUser(email, password, name, city, state) {
     // console.log("email" , email);
     console.log(email, password, name, city, state);
@@ -121,9 +125,10 @@ $(document).ready(function () {
     });
   }
 
+  // Check for some basic Passowrd Validations 
   function passwordValidation(password) {
     $("#signupPasswordError").hide();
-    // check if password has at least : an upper case, lower case, a number, a special character
+    // check if password has at least : an upper case, lower case & a number
     // also password should have a minimum of 8 characters
     if (password.length < 8) {
       console.log("passwrod is: ", password);
@@ -144,10 +149,8 @@ $(document).ready(function () {
     return true;
   }
 
-
+// Method to show error message for 3 seconds and hide it later
   function showErrorMsg(htmlId, errorMsg) {
-    console.log("htmlId", htmlId);
-    console.log("errorMsg", errorMsg);
     $(htmlId).html(errorMsg);
     $(htmlId).show();
     setTimeout(function () { $(htmlId).hide(); }, 3000);

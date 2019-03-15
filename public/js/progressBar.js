@@ -2,6 +2,7 @@ $(document).ready(function () {
     var challengeGoals = [];
     var totalCalories = [];
 
+    // Use the Ajax call to get all the challenges 
     $.get("/api/challenges").then(function (results) {
         var challenge = 0
         for (var index in results) {
@@ -10,6 +11,7 @@ $(document).ready(function () {
         challengeGoals.push(challenge)
     });
 
+    // Use the Ajax call to get all the Workouts 
     $.ajax({
         method: "GET",
         url: "/api/workOutLogs"
@@ -22,6 +24,7 @@ $(document).ready(function () {
     });
 
 
+    // USe both of them to create Progress bar in the UI
     function createWorkOutLogs(dbworkoutlogs) {
         console.log("in the createWorkoutOutLogs function ", dbworkoutlogs)
         var calories = 0
