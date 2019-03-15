@@ -22,7 +22,7 @@ $(document).ready(function () {
   $('select').formSelect();
 
   // If clicked on the Logout, do Ajax call for Logout and also clear Session storage
-  $('#logoutBtn').click(function () {
+  $('.logoutBtn').click(function () {
     event.preventDefault();
     console.log("HTML logout");
     $.get("/logout").then(function (results) {
