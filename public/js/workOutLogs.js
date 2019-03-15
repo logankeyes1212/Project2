@@ -33,7 +33,7 @@ $(document).ready(function () {
             '<h3>' + 'Total Calories Burned: ' + totalCalories + '</h3>'
 
         );
-        if (totalCalories < 20100) {
+        if (totalCalories < 20000) {
             $("#levelImage1").html('<img src="./img/lvl1.png" alt="currentRank" class="rankImage">' + '</img>');
             $("#levelImage2").html('<img src="./img/lvl1.png" alt="currentRank" class="rankImage">' + '</img>');
             $("#levelImage3").html('<img src="./img/lvl1.png" alt="currentRank" class="rankImage">' + '</img>');
