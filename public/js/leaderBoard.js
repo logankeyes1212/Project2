@@ -13,11 +13,11 @@ $(document).ready(function () {
         });
 
 
-        $.get("/api/userByState/"+userState).then(function (results) {
+        $.get("/api/userByState/" + userState).then(function (results) {
             displayResults("#userByState", results);
         });
 
-        $.get("/api/userByCity/"+userCity).then(function (results) {
+        $.get("/api/userByCity/" + userCity).then(function (results) {
             displayResults("#userByCity", results);
         });
 
