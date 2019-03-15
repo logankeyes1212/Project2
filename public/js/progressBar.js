@@ -44,6 +44,7 @@ $(document).ready(function () {
         // Function to create the progress bar
         function goalProgress() {
 
+
             // Generate the HTML
             var progressBar = '<h5> Total Calories Burned: ' + calsBurned + '</h5><h5>Calorie Burn Goal: ' + goalAmount + '</h5>' +
                 '<div class ="progressBar" style= width:' + percentage + '%;></div>' +
