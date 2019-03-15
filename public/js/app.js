@@ -21,6 +21,7 @@ $(document).ready(function () {
 
   $('select').formSelect();
 
+  // If clicked on the Logout, do Ajax call for Logout and also clear Session storage
   $('#logoutBtn').click(function () {
     event.preventDefault();
     console.log("HTML logout");
@@ -29,20 +30,13 @@ $(document).ready(function () {
       sessionStorage.removeItem('userInfo');
       sessionStorage.clear();
       window.location.reload(results);
-      // if (user.success == "Yes") {
-      //   // console.log()
-      //   
-      // 
-      // }
     });
   });
 
 
-
-  // instance.updateTabIndicator();
-  // instance.select('.tabs');
   var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
   // console.log ("userInfo",userInfo);  
+  // Display USer name from Session to the page
   if (userInfo) {
     $("#userName").text(userInfo.user.name);
     $("#userName2").text("Welcome " + userInfo.user.name);

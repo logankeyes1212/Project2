@@ -8,6 +8,7 @@ $(document).ready(function () {
         $(this).formSelect();
     });
 
+    // Get all workout types from API call
     $.ajax({
         method: "GET",
         url: "/api/workOutTypes"
@@ -40,8 +41,6 @@ $(document).ready(function () {
                 }
             }
             selectedWorkOut = { id: id, caloriesPerHour: caloriesPerHour };
-
-            //console.log("Array ",workOutArray);
         });
     }
 
@@ -81,7 +80,8 @@ $(document).ready(function () {
         }
         let page = "#workout"
         location.assign(page);
-    })
+    });
+
     // function to post workout log
     function logStart(workOutLog) {
         console.log(workOutLog);

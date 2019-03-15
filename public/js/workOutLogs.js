@@ -1,7 +1,7 @@
 $(document).ready(function () {
     console.log('hello');
 
-
+    // Get all the workout Logs from the Ajax Call
     $.ajax({
         method: "GET",
         url: "/api/workOutLogs"
@@ -12,6 +12,7 @@ $(document).ready(function () {
         createWorkOutLogs(data)
     });
 
+    // Display Workout logs in the UI
     function createWorkOutLogs(dbworkoutlogs) {
         console.log("in the createWorkoutOutLogs function ", dbworkoutlogs)
 
@@ -34,6 +35,7 @@ $(document).ready(function () {
 
         );
 
+        // Based on the Level display the Image
         if (totalCalories < 20000) {
             $("#levelImage1").html('<img src="./img/lvl1.png" alt="currentRank" class="rankImage">' + '</img>');
             $("#levelImage2").html('<img src="./img/lvl1.png" alt="currentRank" class="rankImage">' + '</img>');

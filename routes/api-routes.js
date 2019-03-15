@@ -5,20 +5,17 @@ var UserInfo;
 
 
 module.exports = function (app) {
-  app.post("/api/login", passport.authenticate("local"), function (req, res) {
-    // res.redirect("/login");
-    // res.json(passport.authenticate("local"))
-    // console.log("req.user",req.user);
 
+  // Using the Passport Authentication process, check if the user is in our database
+  app.post("/api/login", passport.authenticate("local"), function (req, res) {
 
     UserInfo = { user: req.user }
-
     res.json({ success: (req.user ? "Yes" : "No"), user: req.user });
 
   });
 
+  // Once the user signup, create the info in the User Table
   app.post("/api/signup", function (req, res) {
-    // console.log(req.body);
 
     db.User.create({
       name: req.body.name,
@@ -27,30 +24,25 @@ module.exports = function (app) {
       city: req.body.city,
       state: req.body.state
     }).then(function (result) {
-      // console.log("result",result);
       res.redirect("/login");
     });
   });
 
+  // Once the user create a new Challenge, add that info in the Challenges Table
   app.post("/api/challenge", function (req, res) {
-    // console.log(req.body);
-
     db.workOutChallenge.create({
       name: req.body.name,
       goal: req.body.goal,
       challengeDuration: req.body.challengeDuration
-
     }).then(function (challengeResult) {
-      // console.log("result ", challengeResult);
       res.redirect("/main");
-      // res.json(result);
     }).catch(function (err) {
       console.log(err);
       res.json(err);
-      // res.status(422).json(err.errors[0].message);
     });
   });
 
+  // Get all the members of Level up app for displaying in the UI
   app.get("/api/allUsers", function (req, res) {
     db.User.findAll({})
       .then(function (users) {
@@ -59,6 +51,7 @@ module.exports = function (app) {
       });
   });
 
+  // Get all the members based on the user City
   app.get("/api/userByCity/:userCity", function (req, res) {
     db.User.findAll({
       where: {
@@ -69,11 +62,11 @@ module.exports = function (app) {
       ],
     })
       .then(function (users) {
-        // console.log(challenges);
         res.json(users);
       });
   });
 
+  // Get all the members based on the user State
   app.get("/api/userByState/:userState", function (req, res) {
     db.User.findAll({
       where: {
@@ -84,29 +77,25 @@ module.exports = function (app) {
       ],
     })
       .then(function (users) {
-        // console.log(challenges);
         res.json(users);
       });
   });
 
 
+  // Create new work out types to add it to Database
   app.post("/api/workOutTypes", function (req, res) {
-    // console.log(req.body);
-
-    db.workOutTypes.create({
+     db.workOutTypes.create({
       name: req.body.name,
 
     }).then(function (result) {
-      // console.log("result",result);
-      //res.redirect("/main");
+
       res.json(result);
     }).catch(function (err) {
-      // console.log(err);
       res.json(err);
-      // res.status(422).json(err.errors[0].message);
     });
   });
 
+  // Get all the user Challenges to display in the front end
   app.get("/api/challenges", function (req, res) {
     db.workOutChallenge.findAll({})
       .then(function (challenges) {
@@ -115,6 +104,7 @@ module.exports = function (app) {
       });
   });
 
+  // Get all work out types to display it to the user
   app.get("/api/workOutTypes", function (req, res) {
     db.workOutTypes.findAll({})
       .then(function (dbworkOutTypes) {
@@ -122,6 +112,7 @@ module.exports = function (app) {
         // console.log(dbworkOutTypes)
       });
   });
+
   //Route for logging user out
   app.get("/logout", function (req, res) {
     req.logout();
@@ -129,7 +120,7 @@ module.exports = function (app) {
     res.redirect("/");
   });
 
-  //get api for workoutlogs
+  // Get all users work out Logs to display it to the user
   app.get("/api/workOutLogs", function (req, res) {
     console.log("get api workoutlogs")
 
@@ -144,7 +135,7 @@ module.exports = function (app) {
     });
   });
 
-  // Route for getting some data about our user to be used client side
+  // Route for getting user data 
   app.post("/api/user_data", function (req, res) {
     console.log("req.params.email", req.body.email);
     db.User.findOne({
@@ -176,13 +167,9 @@ module.exports = function (app) {
 
 
     }).then(function (result) {
-      // console.log("result",result);
-      //res.redirect("/main");
       res.json(result);
     }).catch(function (err) {
-      // console.log(err);
       res.json(err);
-      // res.status(422).json(err.errors[0].message);
     });
   });
 
