@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     var selectedWorkOut;
-
+    
     $('#workOutTypesDropDown').formSelect();
     $('#workOutTypesDropDown').on('contentChanged', function () {
         $(this).formSelect();
@@ -77,6 +77,7 @@ $(document).ready(function () {
             }; console.log("derre" + selectedWorkOut.caloriesPerHour);
             // call the log function to post the log
             logStart(workOutLog);
+            window.location.reload();
         }
         let page = "#workout"
         location.assign(page);
