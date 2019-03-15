@@ -33,6 +33,7 @@ $(document).ready(function () {
             '<h3>' + 'Total Calories Burned: ' + totalCalories + '</h3>'
 
         );
+
         if (totalCalories < 20000) {
             $("#levelImage1").html('<img src="./img/lvl1.png" alt="currentRank" class="rankImage">' + '</img>');
             $("#levelImage2").html('<img src="./img/lvl1.png" alt="currentRank" class="rankImage">' + '</img>');
@@ -94,6 +95,7 @@ $(document).ready(function () {
             $("#levelImage4").html('<img src="./img/lvl10.png" alt="currentRank" class="rankImage">' + '</img>');
             $("#currentLevel").html("<p>Your Current Progress: Level 10"+"</p>");
         }
+
 
     }
 
