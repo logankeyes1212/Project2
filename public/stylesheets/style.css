@@ -158,6 +158,7 @@ div.progressBar {
     height: 50px;
     animation: animate 2.5s;
     max-width: 100%;
+    overflow: hidden;
 }
 
 @keyframes animate {
