@@ -155,7 +155,6 @@ div.progressBar {
 	font-weight: 700;
     padding: 10px;
 	display: block;
-    /* width: 20px; */
     height: 50px;
     animation: animate 2.5s;
     max-width: 100%;
