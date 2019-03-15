@@ -34,16 +34,6 @@ $(document).ready(function () {
         totalCalories.push(calories)
 
 
-
-    // Function to create the progress bar
-    function goalProgress() {
-        
-        // Generate the HTML
-        var progressBar = '<h5> Total Calories Burned: ' + calsBurned + '</h5><h5>Calorie Burn Goal: '+goalAmount+'</h5>'+
-            '<div class ="progressBar" style= width:' + percentage + '%;></div>' +
-            '<span id="goal_start" style="float: left; font-size: 18px; padding: 5px;">' + 0 + '</span>' +
-            '<span id="goal-target" style="float: right; font-size: 18px; padding 5px;">' + goalAmount + '</span>';
-
         console.log("challengeGoals", challengeGoals[0]);
         console.log("totalCalories", totalCalories[0]);
         // Variables 
